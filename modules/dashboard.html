@@ -1,0 +1,782 @@
+<!-- Welcome Banner -->
+ <div class="mb-8 bg-gradient-to-r from-blue-900/30 to-indigo-900/30 rounded-2xl p-6 shadow-lg border border-blue-500/10 backdrop-blur-sm relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full filter blur-3xl -mr-32 -mt-32"></div>
+    <div class="relative">
+        <h1 class="text-2xl font-semibold mb-2">Bienvenue, <span class="text-blue-400">RamiMohamed12</span></h1>
+        <p class="text-gray-300">Voici un aperçu de l'activité sur la plateforme StageConnect</p>
+        
+        <div class="flex flex-wrap gap-6 mt-6">
+            <button class="flex items-center gap-2 bg-blue-600/20 hover:bg-blue-600/40 px-4 py-2 rounded-lg border border-blue-500/30 transition-all" onclick="loadModule('create-offer')">
+                <i class="fas fa-plus-circle"></i>
+                <span>Nouvelle offre de stage</span>
+            </button>
+            
+            <button class="flex items-center gap-2 bg-indigo-600/20 hover:bg-indigo-600/40 px-4 py-2 rounded-lg border border-indigo-500/30 transition-all" onclick="loadModule('create-company')">
+                <i class="fas fa-building"></i>
+                <span>Ajouter une entreprise</span>
+            </button>
+            
+            <button class="flex items-center gap-2 bg-violet-600/20 hover:bg-violet-600/40 px-4 py-2 rounded-lg border border-violet-500/30 transition-all" onclick="loadModule('create-student')">
+                <i class="fas fa-user-graduate"></i>
+                <span>Ajouter un étudiant</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Overview -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="stat-card">
+        <div class="icon bg-blue-500/20 text-blue-500">
+            <i class="fas fa-briefcase"></i>
+        </div>
+        <div>
+            <h3>Offres actives</h3>
+            <p class="value">128</p>
+            <p class="change positive"><i class="fas fa-arrow-up"></i> 12%</p>
+        </div>
+    </div>
+    
+    <div class="stat-card">
+        <div class="icon bg-purple-500/20 text-purple-500">
+            <i class="fas fa-user-graduate"></i>
+        </div>
+        <div>
+            <h3>Étudiants inscrits</h3>
+            <p class="value">1,248</p>
+            <p class="change positive"><i class="fas fa-arrow-up"></i> 8.3%</p>
+        </div>
+    </div>
+    
+    <div class="stat-card">
+        <div class="icon bg-emerald-500/20 text-emerald-500">
+            <i class="fas fa-building"></i>
+        </div>
+        <div>
+          <h3>Entreprises partenaires</h3>
+          <p class="value">84</p>
+          <p class="change positive"><i class="fas fa-arrow-up"></i> 3.2%</p>
+      </div>
+  </div>
+  
+  <div class="stat-card">
+      <div class="icon bg-amber-500/20 text-amber-500">
+          <i class="fas fa-clipboard-check"></i>
+      </div>
+      <div>
+          <h3>Candidatures en attente</h3>
+          <p class="value">38</p>
+          <p class="change negative"><i class="fas fa-arrow-up"></i> 14.2%</p>
+      </div>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <!-- Statistiques des offres -->
+  <div class="lg:col-span-2">
+      <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+          <div class="flex justify-between items-center mb-6">
+              <h2 class="text-xl font-semibold">Statistiques des offres</h2>
+              <div class="flex space-x-2">
+                  <button class="bg-slate-700/50 hover:bg-slate-600/50 text-sm py-1 px-3 rounded-lg transition-all filter-btn" data-period="30">30j</button>
+                  <button class="bg-blue-600/50 text-sm py-1 px-3 rounded-lg transition-all filter-btn active" data-period="90">90j</button>
+                  <button class="bg-slate-700/50 hover:bg-slate-600/50 text-sm py-1 px-3 rounded-lg transition-all filter-btn" data-period="365">1an</button>
+              </div>
+          </div>
+          <div class="chart-container h-72">
+              <canvas id="offersChart"></canvas>
+          </div>
+      </div>
+  </div>
+
+  <!-- Activités récentes -->
+  <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+      <div class="flex justify-between items-center mb-6">
+          <h2 class="text-xl font-semibold">Activités récentes</h2>
+          <button class="text-blue-400 text-sm hover:text-blue-300 transition-colors">
+              Tout voir
+          </button>
+      </div>
+      <div class="space-y-4">
+          <div class="activity-item">
+              <div class="activity-icon bg-blue-500/20">
+                  <i class="fas fa-briefcase text-blue-500"></i>
+              </div>
+              <div class="activity-content">
+                  <p class="activity-title">Nouvelle offre de stage publiée</p>
+                  <p class="activity-desc">Développeur Web Frontend - Technovate</p>
+                  <p class="activity-time">Il y a 12 minutes</p>
+              </div>
+          </div>
+          <div class="activity-item">
+              <div class="activity-icon bg-emerald-500/20">
+                  <i class="fas fa-building text-emerald-500"></i>
+              </div>
+              <div class="activity-content">
+                  <p class="activity-title">Nouvelle entreprise partenaire</p>
+                  <p class="activity-desc">DataViz Solutions - Tech</p>
+                  <p class="activity-time">Il y a 42 minutes</p>
+              </div>
+          </div>
+          <div class="activity-item">
+              <div class="activity-icon bg-violet-500/20">
+                  <i class="fas fa-user-graduate text-violet-500"></i>
+              </div>
+              <div class="activity-content">
+                  <p class="activity-title">5 nouvelles candidatures</p>
+                  <p class="activity-desc">Stage Data Analyst - FutureTech</p>
+                  <p class="activity-time">Il y a 1 heure</p>
+              </div>
+          </div>
+          <div class="activity-item">
+              <div class="activity-icon bg-amber-500/20">
+                  <i class="fas fa-user-plus text-amber-500"></i>
+              </div>
+              <div class="activity-content">
+                  <p class="activity-title">Nouveau compte étudiant créé</p>
+                  <p class="activity-desc">Lisa Martin - Master 2 IA</p>
+                  <p class="activity-time">Il y a 3 heures</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Offres de stages et Candidatures en attente -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+  <!-- Offres de stage récentes -->
+  <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+      <div class="flex justify-between items-center mb-6">
+          <h2 class="text-xl font-semibold">Offres de stage récentes</h2>
+          <div class="flex items-center">
+              <div class="mr-4">
+                  <span class="text-xs text-blue-400">Page 1/5</span>
+              </div>
+              <div class="flex space-x-2">
+                  <button class="page-btn disabled" data-action="prev">
+                      <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button class="page-btn" data-action="next">
+                      <i class="fas fa-chevron-right"></i>
+                  </button>
+              </div>
+          </div>
+      </div>
+      <div class="space-y-4">
+          <div class="stage-card">
+              <div class="stage-logo">
+                  <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft">
+              </div>
+              <div class="stage-content">
+                  <h3 class="stage-title">Développeur Cloud Azure</h3>
+                  <p class="stage-company">Microsoft France</p>
+                  <div class="stage-details">
+                      <span class="stage-detail"><i class="fas fa-map-marker-alt"></i> Paris</span>
+                      <span class="stage-detail"><i class="fas fa-clock"></i> 6 mois</span>
+                      <span class="stage-detail"><i class="fas fa-euro-sign"></i> Rémunéré</span>
+                  </div>
+              </div>
+              <div class="stage-actions">
+                  <button class="action-btn edit-btn" title="Modifier l'offre">
+                      <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button class="action-btn delete-btn" title="Supprimer l'offre">
+                      <i class="fas fa-trash-alt"></i>
+                  </button>
+              </div>
+          </div>
+          
+          <div class="stage-card">
+              <div class="stage-logo">
+                  <img src="https://logo.clearbit.com/airbus.com" alt="Airbus">
+              </div>
+              <div class="stage-content">
+                  <h3 class="stage-title">Data Scientist - IA</h3>
+                  <p class="stage-company">Airbus</p>
+                  <div class="stage-details">
+                      <span class="stage-detail"><i class="fas fa-map-marker-alt"></i> Toulouse</span>
+                      <span class="stage-detail"><i class="fas fa-clock"></i> 5 mois</span>
+                      <span class="stage-detail"><i class="fas fa-euro-sign"></i> Rémunéré</span>
+                  </div>
+              </div>
+              <div class="stage-actions">
+                  <button class="action-btn edit-btn" title="Modifier l'offre">
+                      <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button class="action-btn delete-btn" title="Supprimer l'offre">
+                      <i class="fas fa-trash-alt"></i>
+                  </button>
+              </div>
+          </div>
+          
+          <div class="stage-card">
+              <div class="stage-logo">
+                  <img src="https://logo.clearbit.com/ubisoft.com" alt="Ubisoft">
+              </div>
+              <div class="stage-content">
+                  <h3 class="stage-title">UX/UI Designer Gaming</h3>
+                  <p class="stage-company">Ubisoft</p>
+                  <div class="stage-details">
+                      <span class="stage-detail"><i class="fas fa-map-marker-alt"></i> Montpellier</span>
+                      <span class="stage-detail"><i class="fas fa-clock"></i> 4 mois</span>
+                      <span class="stage-detail"><i class="fas fa-euro-sign"></i> Rémunéré</span>
+                  </div>
+              </div>
+              <div class="stage-actions">
+                  <button class="action-btn edit-btn" title="Modifier l'offre">
+                      <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button class="action-btn delete-btn" title="Supprimer l'offre">
+                      <i class="fas fa-trash-alt"></i>
+                  </button>
+              </div>
+          </div>
+          
+          <div class="stage-card">
+              <div class="stage-logo">
+                  <img src="https://logo.clearbit.com/decathlon.fr" alt="Decathlon">
+              </div>
+              <div class="stage-content">
+                  <h3 class="stage-title">Marketing Digital</h3>
+                  <p class="stage-company">Decathlon</p>
+                  <div class="stage-details">
+                      <span class="stage-detail"><i class="fas fa-map-marker-alt"></i> Lille</span>
+                      <span class="stage-detail"><i class="fas fa-clock"></i> 3 mois</span>
+                      <span class="stage-detail"><i class="fas fa-euro-sign"></i> Rémunéré</span>
+                  </div>
+              </div>
+              <div class="stage-actions">
+                  <button class="action-btn edit-btn" title="Modifier l'offre">
+                      <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button class="action-btn delete-btn" title="Supprimer l'offre">
+                      <i class="fas fa-trash-alt"></i>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Candidatures en attente -->
+  <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+      <div class="flex justify-between items-center mb-6">
+          <h2 class="text-xl font-semibold">Candidatures à valider</h2>
+          <div class="flex items-center">
+              <div class="mr-4">
+                  <span class="text-xs text-blue-400">Page 1/3</span>
+              </div>
+              <div class="flex space-x-2">
+                  <button class="page-btn disabled" data-action="prev">
+                      <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button class="page-btn" data-action="next">
+                      <i class="fas fa-chevron-right"></i>
+                  </button>
+              </div>
+          </div>
+      </div>
+      <div class="space-y-4">
+          <div class="candidature-card">
+              <div class="candidature-student">
+                  <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Étudiante">
+                  <div>
+                      <h3>Sophie Martin</h3>
+                      <p>Master 2 - Informatique</p>
+                  </div>
+              </div>
+              <div class="candidature-info">
+                  <div class="candidature-stage">Développeur FullStack - Orange</div>
+                  <div class="candidature-date">Déposée il y a 3h</div>
+              </div>
+              <div class="candidature-actions">
+                  <button class="btn-accept" title="Accepter"><i class="fas fa-check"></i></button>
+                  <button class="btn-review" title="Consulter"><i class="fas fa-eye"></i></button>
+                  <button class="btn-reject" title="Rejeter"><i class="fas fa-times"></i></button>
+              </div>
+          </div>
+          
+          <div class="candidature-card">
+              <div class="candidature-student">
+                  <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Étudiant">
+                  <div>
+                      <h3>Thomas Dubois</h3>
+                      <p>Licence 3 - Marketing</p>
+                  </div>
+              </div>
+              <div class="candidature-info">
+                  <div class="candidature-stage">Marketing Digital - L'Oréal</div>
+                  <div class="candidature-date">Déposée il y a 5h</div>
+              </div>
+              <div class="candidature-actions">
+                  <button class="btn-accept" title="Accepter"><i class="fas fa-check"></i></button>
+                  <button class="btn-review" title="Consulter"><i class="fas fa-eye"></i></button>
+                  <button class="btn-reject" title="Rejeter"><i class="fas fa-times"></i></button>
+              </div>
+          </div>
+          
+          <div class="candidature-card">
+            <div class="candidature-student">
+              <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Étudiante">
+              <div>
+                  <h3>Emma Leroy</h3>
+                  <p>Master 1 - Data Science</p>
+              </div>
+          </div>
+          <div class="candidature-info">
+              <div class="candidature-stage">Analyste Données - BNP Paribas</div>
+              <div class="candidature-date">Déposée il y a 8h</div>
+          </div>
+          <div class="candidature-actions">
+              <button class="btn-accept" title="Accepter"><i class="fas fa-check"></i></button>
+              <button class="btn-review" title="Consulter"><i class="fas fa-eye"></i></button>
+              <button class="btn-reject" title="Rejeter"><i class="fas fa-times"></i></button>
+          </div>
+      </div>
+      
+      <div class="candidature-card">
+          <div class="candidature-student">
+              <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Étudiant">
+              <div>
+                  <h3>Lucas Moreau</h3>
+                  <p>Master 2 - Cybersécurité</p>
+              </div>
+          </div>
+          <div class="candidature-info">
+              <div class="candidature-stage">Analyste cybersécurité - Thales</div>
+              <div class="candidature-date">Déposée il y a 12h</div>
+          </div>
+          <div class="candidature-actions">
+              <button class="btn-accept" title="Accepter"><i class="fas fa-check"></i></button>
+              <button class="btn-review" title="Consulter"><i class="fas fa-eye"></i></button>
+              <button class="btn-reject" title="Rejeter"><i class="fas fa-times"></i></button>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+<!-- Gestion des comptes et statistiques étudiants -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+<!-- Statistiques des étudiants -->
+<div class="lg:col-span-2 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+  <div class="flex justify-between items-center mb-6">
+      <h2 class="text-xl font-semibold">Statistiques des étudiants</h2>
+      <div class="flex space-x-2">
+          <select class="bg-slate-700/50 text-sm py-1 px-3 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/50">
+              <option value="all">Toutes promotions</option>
+              <option value="master2">Master 2</option>
+              <option value="master1">Master 1</option>
+              <option value="licence3">Licence 3</option>
+          </select>
+          <button class="bg-blue-600/20 hover:bg-blue-600/40 text-sm py-1 px-3 rounded-lg transition-all">
+              <i class="fas fa-filter"></i>
+          </button>
+      </div>
+  </div>
+  <div class="chart-container h-72">
+      <canvas id="studentsStatsChart"></canvas>
+  </div>
+  <div class="grid grid-cols-3 gap-4 mt-4">
+      <div class="stat-mini-card">
+          <div class="stat-mini-title">Avec stage</div>
+          <div class="stat-mini-value">68%</div>
+      </div>
+      <div class="stat-mini-card">
+          <div class="stat-mini-title">En recherche</div>
+          <div class="stat-mini-value">28%</div>
+      </div>
+      <div class="stat-mini-card">
+          <div class="stat-mini-title">Sans recherche</div>
+          <div class="stat-mini-value">4%</div>
+      </div>
+  </div>
+</div>
+
+<!-- Comptes récents -->
+<div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+  <div class="flex justify-between items-center mb-6">
+      <h2 class="text-xl font-semibold">Comptes récents</h2>
+      <div class="flex space-x-3">
+          <button class="account-type-btn active" data-type="student">
+              <i class="fas fa-user-graduate"></i>
+          </button>
+          <button class="account-type-btn" data-type="pilot">
+              <i class="fas fa-user-check"></i>
+          </button>
+      </div>
+  </div>
+  
+  <div class="space-y-3 account-list" id="student-accounts">
+      <div class="account-card">
+          <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Compte" class="account-avatar">
+          <div class="account-info">
+              <h3>Clara Rousseau</h3>
+              <p>Master 2 - Marketing</p>
+          </div>
+          <div class="account-actions">
+              <button class="action-btn edit-btn-sm" title="Modifier">
+                  <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="action-btn delete-btn-sm" title="Supprimer">
+                  <i class="fas fa-trash-alt"></i>
+              </button>
+          </div>
+      </div>
+      
+      <div class="account-card">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Compte" class="account-avatar">
+          <div class="account-info">
+              <h3>Maxime Dupont</h3>
+              <p>Licence 3 - Informatique</p>
+          </div>
+          <div class="account-actions">
+              <button class="action-btn edit-btn-sm" title="Modifier">
+                  <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="action-btn delete-btn-sm" title="Supprimer">
+                  <i class="fas fa-trash-alt"></i>
+              </button>
+          </div>
+      </div>
+      
+      <div class="account-card">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Compte" class="account-avatar">
+          <div class="account-info">
+              <h3>Julie Bernard</h3>
+              <p>Master 1 - Design</p>
+          </div>
+          <div class="account-actions">
+              <button class="action-btn edit-btn-sm" title="Modifier">
+                  <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="action-btn delete-btn-sm" title="Supprimer">
+                  <i class="fas fa-trash-alt"></i>
+              </button>
+          </div>
+      </div>
+      
+      <div class="account-card">
+          <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Compte" class="account-avatar">
+          <div class="account-info">
+              <h3>Antoine Petit</h3>
+              <p>Master 2 - Finance</p>
+          </div>
+          <div class="account-actions">
+              <button class="action-btn edit-btn-sm" title="Modifier">
+                  <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="action-btn delete-btn-sm" title="Supprimer">
+                  <i class="fas fa-trash-alt"></i>
+              </button>
+          </div>
+      </div>
+      
+      <div class="account-card">
+          <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Compte" class="account-avatar">
+          <div class="account-info">
+              <h3>Lucie Girard</h3>
+              <p>Master 1 - Communication</p>
+          </div>
+          <div class="account-actions">
+              <button class="action-btn edit-btn-sm" title="Modifier">
+                  <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="action-btn delete-btn-sm" title="Supprimer">
+                  <i class="fas fa-trash-alt"></i>
+              </button>
+          </div>
+      </div>
+  </div>
+  
+  <div class="space-y-3 account-list hidden" id="pilot-accounts">
+      <div class="account-card">
+          <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Compte" class="account-avatar">
+          <div class="account-info">
+              <h3>Pierre Martin</h3>
+              <p>Pilote - Informatique</p>
+          </div>
+          <div class="account-actions">
+              <button class="action-btn edit-btn-sm" title="Modifier">
+                  <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="action-btn delete-btn-sm" title="Supprimer">
+                  <i class="fas fa-trash-alt"></i>
+              </button>
+          </div>
+      </div>
+      
+      <div class="account-card">
+          <img src="https://randomuser.me/api/portraits/women/58.jpg" alt="Compte" class="account-avatar">
+          <div class="account-info">
+              <h3>Marie Dubois</h3>
+              <p>Pilote - Marketing</p>
+          </div>
+          <div class="account-actions">
+              <button class="action-btn edit-btn-sm" title="Modifier">
+                  <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="action-btn delete-btn-sm" title="Supprimer">
+                  <i class="fas fa-trash-alt"></i>
+              </button>
+          </div>
+      </div>
+      
+      <div class="account-card">
+          <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Compte" class="account-avatar">
+          <div class="account-info">
+              <h3>François Leroy</h3>
+              <p>Pilote - Finance</p>
+          </div>
+          <div class="account-actions">
+              <button class="action-btn edit-btn-sm" title="Modifier">
+                  <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="action-btn delete-btn-sm" title="Supprimer">
+                  <i class="fas fa-trash-alt"></i>
+              </button>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+<!-- Wishlist et Entreprises -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+<!-- Wishlist -->
+<div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+  <div class="flex justify-between items-center mb-6">
+      <h2 class="text-xl font-semibold">Wishlist populaires</h2>
+      <button class="text-blue-400 text-sm hover:text-blue-300 transition-colors" onclick="loadModule('wishlist')">
+          Gérer
+      </button>
+  </div>
+  <div class="space-y-4">
+      <div class="wishlist-card">
+          <div class="wishlist-logo">
+              <img src="https://logo.clearbit.com/orange.fr" alt="Orange">
+          </div>
+          <div class="wishlist-content">
+              <h3>Développeur Backend Java</h3>
+              <p>Orange Business Services</p>
+          </div>
+          <div class="wishlist-count">
+              <span>14 étudiants</span>
+          </div>
+      </div>
+      
+      <div class="wishlist-card">
+          <div class="wishlist-logo">
+              <img src="https://logo.clearbit.com/loreal.com" alt="L'Oréal">
+          </div>
+          <div class="wishlist-content">
+              <h3>Chef de produit digital</h3>
+              <p>L'Oréal Paris</p>
+          </div>
+          <div class="wishlist-count">
+              <span>12 étudiants</span>
+          </div>
+      </div>
+      
+      <div class="wishlist-card">
+          <div class="wishlist-logo">
+              <img src="https://logo.clearbit.com/capgemini.com" alt="Capgemini">
+          </div>
+          <div class="wishlist-content">
+              <h3>Consultant IT junior</h3>
+              <p>Capgemini</p>
+          </div>
+          <div class="wishlist-count">
+              <span>9 étudiants</span>
+          </div>
+      </div>
+      
+      <div class="wishlist-card">
+          <div class="wishlist-logo">
+              <img src="https://logo.clearbit.com/bnpparibas.com" alt="BNP Paribas">
+          </div>
+          <div class="wishlist-content">
+              <h3>Analyste risques financiers</h3>
+              <p>BNP Paribas</p>
+          </div>
+          <div class="wishlist-count">
+            <span>8 étudiants</span>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Entreprises -->
+<div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+<div class="flex justify-between items-center mb-6">
+    <h2 class="text-xl font-semibold">Évaluations des entreprises</h2>
+    <button class="text-blue-400 text-sm hover:text-blue-300 transition-colors" onclick="loadModule('evaluate-company')">
+        Évaluer
+    </button>
+</div>
+<div class="space-y-4">
+    <div class="company-eval-card">
+        <div class="company-eval-logo">
+            <img src="https://logo.clearbit.com/google.com" alt="Google">
+        </div>
+        <div class="company-eval-content">
+            <h3>Google France</h3>
+            <div class="company-eval-rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <span>5.0</span>
+            </div>
+        </div>
+        <div class="company-eval-feedback">
+            <span>12 avis</span>
+        </div>
+    </div>
+    
+    <div class="company-eval-card">
+        <div class="company-eval-logo">
+            <img src="https://logo.clearbit.com/ibm.com" alt="IBM">
+        </div>
+        <div class="company-eval-content">
+            <h3>IBM France</h3>
+            <div class="company-eval-rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span>4.5</span>
+            </div>
+        </div>
+        <div class="company-eval-feedback">
+            <span>8 avis</span>
+        </div>
+    </div>
+    
+    <div class="company-eval-card">
+        <div class="company-eval-logo">
+            <img src="https://logo.clearbit.com/lvmh.com" alt="LVMH">
+        </div>
+        <div class="company-eval-content">
+            <h3>LVMH</h3>
+            <div class="company-eval-rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <span>4.0</span>
+            </div>
+        </div>
+        <div class="company-eval-feedback">
+            <span>6 avis</span>
+        </div>
+    </div>
+    
+    <div class="company-eval-card">
+        <div class="company-eval-logo">
+            <img src="https://logo.clearbit.com/accenture.com" alt="Accenture">
+        </div>
+        <div class="company-eval-content">
+            <h3>Accenture</h3>
+            <div class="company-eval-rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <span>3.7</span>
+            </div>
+        </div>
+        <div class="company-eval-feedback">
+            <span>9 avis</span>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<script>
+// Initialize charts and other dashboard functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Charts initialization code here
+    const ctx = document.getElementById('offersChart').getContext('2d');
+    new Chart(ctx, {
+        // Chart configuration
+    });
+
+    // Add event listeners for filter buttons
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            // Filter handling code
+        });
+    });
+
+    // Initialize student statistics chart
+    const studentsCtx = document.getElementById('studentsStatsChart').getContext('2d');
+    new Chart(studentsCtx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin'],
+            datasets: [{
+                label: 'Étudiants actifs',
+                data: [65, 78, 82, 85, 88, 90],
+                borderColor: '#10b981',
+                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                tension: 0.4
+            }, {
+                label: 'Étudiants inactifs',
+                data: [35, 22, 18, 15, 12, 10],
+                borderColor: '#ef4444',
+                backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        color: '#f3f4f6',
+                        font: { family: 'Montserrat' }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: { display: false },
+                    ticks: { color: '#9ca3af' }
+                },
+                y: {
+                    grid: { color: 'rgba(148, 163, 184, 0.1)' },
+                    ticks: { color: '#9ca3af' }
+                }
+            }
+        }
+    });
+
+    // Add event listeners for account type toggle
+    document.querySelectorAll('.account-type-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const type = this.dataset.type;
+            document.querySelectorAll('.account-type-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            document.querySelectorAll('.account-list').forEach(list => list.classList.add('hidden'));
+            document.getElementById(`${type}-accounts`).classList.remove('hidden');
+        });
+    });
+});
+</script>

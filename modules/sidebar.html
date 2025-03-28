@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StageConnect - Pilotage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+</head>
+<body class="bg-slate-900 text-white font-['Montserrat']">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <div class="sidebar close">
+            <div class="logo-details">
+                <div class="logo-container">
+                    <div class="logo-ring"></div>
+                    <div class="logo-core"></div>
+                </div>
+                <span class="logo_name font-['Orbitron']">StageConnect</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li class="active">
+                    <a href="index.html">
+                        <i class='bx bxs-dashboard'></i>
+                        <span class="link_name">Tableau de bord</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="index.html">Tableau de bord</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Gestion des entreprises -->
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-building-house'></i>
+                            <span class="link_name">Entreprises</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Entreprises</a></li>
+                        <li><a href="#" onclick="loadModule('create-company')">Créer</a></li>
+                        <li><a href="#" onclick="loadModule('edit-company')">Modifier</a></li>
+
+
+                    </ul>
+                </li>
+                
+                <!-- Gestion des offres de stage -->
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-briefcase'></i>
+                            <span class="link_name">Offres de stage</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Offres de stage</a></li>
+                        <li><a href="#" onclick="loadModule('create-offer')">Créer</a></li>
+                        <li><a href="#" onclick="loadModule('edit-offer')">Modifier</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Gestion des pilotes -->
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-user-check'></i>
+                            <span class="link_name">Pilotes</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Pilotes</a></li>
+                        <li><a href="#" onclick="loadModule('create-pilot')">Créer</a></li>
+                        <li><a href="#" onclick="loadModule('edit-pilot')">Modifier</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Gestion des étudiants -->
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-user-pin'></i>
+                            <span class="link_name">Étudiants</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Étudiants</a></li>
+                        <li><a href="#" onclick="loadModule('create-student')">Créer</a></li>
+                        <li><a href="#" onclick="loadModule('edit-student')">Modifier</a></li>
+                        <li><a href="#" onclick="loadModule('student-stats')">Statistiques</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Gestion des candidatures -->
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-file'></i>
+                            <span class="link_name">Candidatures</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Candidatures</a></li>
+                        <li><a href="#" onclick="loadModule('wishlist')">Wish-list</a></li>
+                        <li><a href="#" onclick="loadModule('applications')">Candidatures en cours</a></li>
+                        <li><a href="#" onclick="loadModule('add-to-wishlist')">Ajouter à la wish-list</a></li>
+                        <li><a href="#" onclick="loadModule('remove-from-wishlist')">Retirer de la wish-list</a></li>
+                        <li><a href="#" onclick="loadModule('apply-to-offer')">Postuler à une offre</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Paramètres -->
+                <li>
+                    <a href="#" onclick="loadModule('settings')">
+                        <i class='bx bx-cog'></i>
+                        <span class="link_name">Paramètres</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#" onclick="loadModule('settings')">Paramètres</a></li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <div class="profile-details">
+                        <div class="profile-content">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80" alt="Profile">
+                        </div>
+                        <div class="name-job">
+                            <div class="profile_name">RamiMohamed12</div>
+                            <div class="job">Pilote de Promotion</div>
+                        </div>
+                        <i class='bx bx-log-out' id="logout-btn"></i>
+                    </div>
+                </li>
+
+                
+
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="home-section">
+            <!-- Top Navigation -->
+            <div class="home-content flex justify-between items-center p-4 bg-gradient-to-r from-indigo-900/80 to-slate-900/80 backdrop-blur-md">
+                <div class="flex items-center">
+                    <i class='bx bx-menu text-2xl hover:text-blue-400 transition-colors cursor-pointer'></i>
+                    <h2 class="ml-4 text-xl font-medium font-['Montserrat']">StageConnect <span class="text-blue-400">Pilotage</span></h2>
+                </div>
+                
+                <div class="flex items-center space-x-6">
+                    <div class="relative">
+                        <input type="text" placeholder="Rechercher..." class="bg-slate-800/50 rounded-full py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all w-64">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button class="relative p-2 text-gray-400 hover:text-white" id="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="absolute top-1 right-1 w-2 h-2 bg-blue-500 rounded-full pulse-animation"></span>
+                        </button>
+                        
+                        <button class="relative p-2 text-gray-400 hover:text-white" id="messages-btn">
+                            <i class="fas fa-envelope"></i>
+                            <span class="absolute top-1 right-1 w-2 h-2 bg-green-500 rounded-full pulse-animation"></span>
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center border-l border-slate-700/50 pl-4">
+                        <span class="text-sm font-['Montserrat'] text-blue-300">2025-03-08 17:03:18</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <main class="p-6 overflow-y-auto" id="main-content">
+                <!-- Welcome Banner -->
+                <div class="mb-8 bg-gradient-to-r from-blue-900/30 to-indigo-900/30 rounded-2xl p-6 shadow-lg border border-blue-500/10 backdrop-blur-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full filter blur-3xl -mr-32 -mt-32"></div>
+                    <div class="relative">
+                        <h1 class="text-2xl font-semibold mb-2">Bienvenue, <span class="text-blue-400">RamiMohamed12</span></h1>
+                        <p class="text-gray-300">Voici un aperçu de l'activité sur la plateforme StageConnect</p>
+                        
+                        <div class="flex flex-wrap gap-6 mt-6">
+                            <button class="flex items-center gap-2 bg-blue-600/20 hover:bg-blue-600/40 px-4 py-2 rounded-lg border border-blue-500/30 transition-all" onclick="loadModule('create-offer')">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Nouvelle offre de stage</span>
+                            </button>
+                            
+                            <button class="flex items-center gap-2 bg-indigo-600/20 hover:bg-indigo-600/40 px-4 py-2 rounded-lg border border-indigo-500/30 transition-all" onclick="loadModule('create-company')">
+                                <i class="fas fa-building"></i>
+                                <span>Ajouter une entreprise</span>
+                            </button>
+                            
+                            <button class="flex items-center gap-2 bg-violet-600/20 hover:bg-violet-600/40 px-4 py-2 rounded-lg border border-violet-500/30 transition-all" onclick="loadModule('create-student')">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Ajouter un étudiant</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Overview -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="stat-card">
+                        <div class="icon bg-blue-500/20 text-blue-500">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div>
+                            <h3>Offres actives</h3>
+                            <p class="value">128</p>
+                            <p class="change positive"><i class="fas fa-arrow-up"></i> 12%</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="icon bg-purple-500/20 text-purple-500">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div>
+                            <h3>Étudiants inscrits</h3>
+                            <p class="value">1,248</p>
+                            <p class="change positive"><i class="fas fa-arrow-up"></i> 8.3%</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="icon bg-emerald-500/20 text-emerald-500">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div>
+                          <h3>Entreprises partenaires</h3>
+                          <p class="value">84</p>
+                          <p class="change positive"><i class="fas fa-arrow-up"></i> 3.2%</p>
+                      </div>
+                  </div>
+                  
+                  <div class="stat-card">
+                      <div class="icon bg-amber-500/20 text-amber-500">
+                          <i class="fas fa-clipboard-check"></i>
+                      </div>
+                      <div>
+                          <h3>Candidatures en attente</h3>
+                          <p class="value">38</p>
+                          <p class="change negative"><i class="fas fa-arrow-up"></i> 14.2%</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  <!-- Statistiques des offres -->
+                  <div class="lg:col-span-2">
+                      <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+                          <div class="flex justify-between items-center mb-6">
+                              <h2 class="text-xl font-semibold">Statistiques des offres</h2>
+                              <div class="flex space-x-2">
+                                  <button class="bg-slate-700/50 hover:bg-slate-600/50 text-sm py-1 px-3 rounded-lg transition-all filter-btn" data-period="30">30j</button>
+                                  <button class="bg-blue-600/50 text-sm py-1 px-3 rounded-lg transition-all filter-btn active" data-period="90">90j</button>
+                                  <button class="bg-slate-700/50 hover:bg-slate-600/50 text-sm py-1 px-3 rounded-lg transition-all filter-btn" data-period="365">1an</button>
+                              </div>
+                          </div>
+                          <div class="chart-container h-72">
+                              <canvas id="offersChart"></canvas>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Activités récentes -->
+                  <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+                      <div class="flex justify-between items-center mb-6">
+                          <h2 class="text-xl font-semibold">Activités récentes</h2>
+                          <button class="text-blue-400 text-sm hover:text-blue-300 transition-colors">
+                              Tout voir
+                          </button>
+                      </div>
+                      <div class="space-y-4">
+                          <div class="activity-item">
+                              <div class="activity-icon bg-blue-500/20">
+                                  <i class="fas fa-briefcase text-blue-500"></i>
+                              </div>
+                              <div class="activity-content">
+                                  <p class="activity-title">Nouvelle offre de stage publiée</p>
+                                  <p class="activity-desc">Développeur Web Frontend - Technovate</p>
+                                  <p class="activity-time">Il y a 12 minutes</p>
+                              </div>
+                          </div>
+                          <div class="activity-item">
+                              <div class="activity-icon bg-emerald-500/20">
+                                  <i class="fas fa-building text-emerald-500"></i>
+                              </div>
+                              <div class="activity-content">
+                                  <p class="activity-title">Nouvelle entreprise partenaire</p>
+                                  <p class="activity-desc">DataViz Solutions - Tech</p>
+                                  <p class="activity-time">Il y a 42 minutes</p>
+                              </div>
+                          </div>
+                          <div class="activity-item">
+                              <div class="activity-icon bg-violet-500/20">
+                                  <i class="fas fa-user-graduate text-violet-500"></i>
+                              </div>
+                              <div class="activity-content">
+                                  <p class="activity-title">5 nouvelles candidatures</p>
+                                  <p class="activity-desc">Stage Data Analyst - FutureTech</p>
+                                  <p class="activity-time">Il y a 1 heure</p>
+                              </div>
+                          </div>
+                          <div class="activity-item">
+                              <div class="activity-icon bg-amber-500/20">
+                                  <i class="fas fa-user-plus text-amber-500"></i>
+                              </div>
+                              <div class="activity-content">
+                                  <p class="activity-title">Nouveau compte étudiant créé</p>
+                                  <p class="activity-desc">Lisa Martin - Master 2 IA</p>
+                                  <p class="activity-time">Il y a 3 heures</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Offres de stages et Candidatures en attente -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+                  <!-- Offres de stage récentes -->
+                  <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+                      <div class="flex justify-between items-center mb-6">
+                          <h2 class="text-xl font-semibold">Offres de stage récentes</h2>
+                          <div class="flex items-center">
+                              <div class="mr-4">
+                                  <span class="text-xs text-blue-400">Page 1/5</span>
+                              </div>
+                              <div class="flex space-x-2">
+                                  <button class="page-btn disabled" data-action="prev">
+                                      <i class="fas fa-chevron-left"></i>
+                                  </button>
+                                  <button class="page-btn" data-action="next">
+                                      <i class="fas fa-chevron-right"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="space-y-4">
+                          <div class="stage-card">
+                              <div class="stage-logo">
+                                  <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft">
+                              </div>
+                              <div class="stage-content">
+                                  <h3 class="stage-title">Développeur Cloud Azure</h3>
+                                  <p class="stage-company">Microsoft France</p>
+                                  <div class="stage-details">
+                                      <span class="stage-detail"><i class="fas fa-map-marker-alt"></i> Paris</span>
+                                      <span class="stage-detail"><i class="fas fa-clock"></i> 6 mois</span>
+                                      <span class="stage-detail"><i class="fas fa-euro-sign"></i> Rémunéré</span>
+                                  </div>
+                              </div>
+                              <div class="stage-actions">
+                                  <button class="action-btn edit-btn" title="Modifier l'offre">
+                                      <i class="fas fa-pencil-alt"></i>
+                                  </button>
+                                  <button class="action-btn delete-btn" title="Supprimer l'offre">
+                                      <i class="fas fa-trash-alt"></i>
+                                  </button>
+                              </div>
+                          </div>
+                          
+                          <div class="stage-card">
+                              <div class="stage-logo">
+                                  <img src="https://logo.clearbit.com/airbus.com" alt="Airbus">
+                              </div>
+                              <div class="stage-content">
+                                  <h3 class="stage-title">Data Scientist - IA</h3>
+                                  <p class="stage-company">Airbus</p>
+                                  <div class="stage-details">
+                                      <span class="stage-detail"><i class="fas fa-map-marker-alt"></i> Toulouse</span>
+                                      <span class="stage-detail"><i class="fas fa-clock"></i> 5 mois</span>
+                                      <span class="stage-detail"><i class="fas fa-euro-sign"></i> Rémunéré</span>
+                                  </div>
+                              </div>
+                              <div class="stage-actions">
+                                  <button class="action-btn edit-btn" title="Modifier l'offre">
+                                      <i class="fas fa-pencil-alt"></i>
+                                  </button>
+                                  <button class="action-btn delete-btn" title="Supprimer l'offre">
+                                      <i class="fas fa-trash-alt"></i>
+                                  </button>
+                              </div>
+                          </div>
+                          
+                          <div class="stage-card">
+                              <div class="stage-logo">
+                                  <img src="https://logo.clearbit.com/ubisoft.com" alt="Ubisoft">
+                              </div>
+                              <div class="stage-content">
+                                  <h3 class="stage-title">UX/UI Designer Gaming</h3>
+                                  <p class="stage-company">Ubisoft</p>
+                                  <div class="stage-details">
+                                      <span class="stage-detail"><i class="fas fa-map-marker-alt"></i> Montpellier</span>
+                                      <span class="stage-detail"><i class="fas fa-clock"></i> 4 mois</span>
+                                      <span class="stage-detail"><i class="fas fa-euro-sign"></i> Rémunéré</span>
+                                  </div>
+                              </div>
+                              <div class="stage-actions">
+                                  <button class="action-btn edit-btn" title="Modifier l'offre">
+                                      <i class="fas fa-pencil-alt"></i>
+                                  </button>
+                                  <button class="action-btn delete-btn" title="Supprimer l'offre">
+                                      <i class="fas fa-trash-alt"></i>
+                                  </button>
+                              </div>
+                          </div>
+                          
+                          <div class="stage-card">
+                              <div class="stage-logo">
+                                  <img src="https://logo.clearbit.com/decathlon.fr" alt="Decathlon">
+                              </div>
+                              <div class="stage-content">
+                                  <h3 class="stage-title">Marketing Digital</h3>
+                                  <p class="stage-company">Decathlon</p>
+                                  <div class="stage-details">
+                                      <span class="stage-detail"><i class="fas fa-map-marker-alt"></i> Lille</span>
+                                      <span class="stage-detail"><i class="fas fa-clock"></i> 3 mois</span>
+                                      <span class="stage-detail"><i class="fas fa-euro-sign"></i> Rémunéré</span>
+                                  </div>
+                              </div>
+                              <div class="stage-actions">
+                                  <button class="action-btn edit-btn" title="Modifier l'offre">
+                                      <i class="fas fa-pencil-alt"></i>
+                                  </button>
+                                  <button class="action-btn delete-btn" title="Supprimer l'offre">
+                                      <i class="fas fa-trash-alt"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- Candidatures en attente -->
+                  <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+                      <div class="flex justify-between items-center mb-6">
+                          <h2 class="text-xl font-semibold">Candidatures à valider</h2>
+                          <div class="flex items-center">
+                              <div class="mr-4">
+                                  <span class="text-xs text-blue-400">Page 1/3</span>
+                              </div>
+                              <div class="flex space-x-2">
+                                  <button class="page-btn disabled" data-action="prev">
+                                      <i class="fas fa-chevron-left"></i>
+                                  </button>
+                                  <button class="page-btn" data-action="next">
+                                      <i class="fas fa-chevron-right"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="space-y-4">
+                          <div class="candidature-card">
+                              <div class="candidature-student">
+                                  <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Étudiante">
+                                  <div>
+                                      <h3>Sophie Martin</h3>
+                                      <p>Master 2 - Informatique</p>
+                                  </div>
+                              </div>
+                              <div class="candidature-info">
+                                  <div class="candidature-stage">Développeur FullStack - Orange</div>
+                                  <div class="candidature-date">Déposée il y a 3h</div>
+                              </div>
+                              <div class="candidature-actions">
+                                  <button class="btn-accept" title="Accepter"><i class="fas fa-check"></i></button>
+                                  <button class="btn-review" title="Consulter"><i class="fas fa-eye"></i></button>
+                                  <button class="btn-reject" title="Rejeter"><i class="fas fa-times"></i></button>
+                              </div>
+                          </div>
+                          
+                          <div class="candidature-card">
+                              <div class="candidature-student">
+                                  <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Étudiant">
+                                  <div>
+                                      <h3>Thomas Dubois</h3>
+                                      <p>Licence 3 - Marketing</p>
+                                  </div>
+                              </div>
+                              <div class="candidature-info">
+                                  <div class="candidature-stage">Marketing Digital - L'Oréal</div>
+                                  <div class="candidature-date">Déposée il y a 5h</div>
+                              </div>
+                              <div class="candidature-actions">
+                                  <button class="btn-accept" title="Accepter"><i class="fas fa-check"></i></button>
+                                  <button class="btn-review" title="Consulter"><i class="fas fa-eye"></i></button>
+                                  <button class="btn-reject" title="Rejeter"><i class="fas fa-times"></i></button>
+                              </div>
+                          </div>
+                          
+                          <div class="candidature-card">
+                            <div class="candidature-student">
+                              <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Étudiante">
+                              <div>
+                                  <h3>Emma Leroy</h3>
+                                  <p>Master 1 - Data Science</p>
+                              </div>
+                          </div>
+                          <div class="candidature-info">
+                              <div class="candidature-stage">Analyste Données - BNP Paribas</div>
+                              <div class="candidature-date">Déposée il y a 8h</div>
+                          </div>
+                          <div class="candidature-actions">
+                              <button class="btn-accept" title="Accepter"><i class="fas fa-check"></i></button>
+                              <button class="btn-review" title="Consulter"><i class="fas fa-eye"></i></button>
+                              <button class="btn-reject" title="Rejeter"><i class="fas fa-times"></i></button>
+                          </div>
+                      </div>
+                      
+                      <div class="candidature-card">
+                          <div class="candidature-student">
+                              <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Étudiant">
+                              <div>
+                                  <h3>Lucas Moreau</h3>
+                                  <p>Master 2 - Cybersécurité</p>
+                              </div>
+                          </div>
+                          <div class="candidature-info">
+                              <div class="candidature-stage">Analyste cybersécurité - Thales</div>
+                              <div class="candidature-date">Déposée il y a 12h</div>
+                          </div>
+                          <div class="candidature-actions">
+                              <button class="btn-accept" title="Accepter"><i class="fas fa-check"></i></button>
+                              <button class="btn-review" title="Consulter"><i class="fas fa-eye"></i></button>
+                              <button class="btn-reject" title="Rejeter"><i class="fas fa-times"></i></button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Gestion des comptes et statistiques étudiants -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+              <!-- Statistiques des étudiants -->
+              <div class="lg:col-span-2 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+                  <div class="flex justify-between items-center mb-6">
+                      <h2 class="text-xl font-semibold">Statistiques des étudiants</h2>
+                      <div class="flex space-x-2">
+                          <select class="bg-slate-700/50 text-sm py-1 px-3 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/50">
+                              <option value="all">Toutes promotions</option>
+                              <option value="master2">Master 2</option>
+                              <option value="master1">Master 1</option>
+                              <option value="licence3">Licence 3</option>
+                          </select>
+                          <button class="bg-blue-600/20 hover:bg-blue-600/40 text-sm py-1 px-3 rounded-lg transition-all">
+                              <i class="fas fa-filter"></i>
+                          </button>
+                      </div>
+                  </div>
+                  <div class="chart-container h-72">
+                      <canvas id="studentsStatsChart"></canvas>
+                  </div>
+                  <div class="grid grid-cols-3 gap-4 mt-4">
+                      <div class="stat-mini-card">
+                          <div class="stat-mini-title">Avec stage</div>
+                          <div class="stat-mini-value">68%</div>
+                      </div>
+                      <div class="stat-mini-card">
+                          <div class="stat-mini-title">En recherche</div>
+                          <div class="stat-mini-value">28%</div>
+                      </div>
+                      <div class="stat-mini-card">
+                          <div class="stat-mini-title">Sans recherche</div>
+                          <div class="stat-mini-value">4%</div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Comptes récents -->
+              <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+                  <div class="flex justify-between items-center mb-6">
+                      <h2 class="text-xl font-semibold">Comptes récents</h2>
+                      <div class="flex space-x-3">
+                          <button class="account-type-btn active" data-type="student">
+                              <i class="fas fa-user-graduate"></i>
+                          </button>
+                          <button class="account-type-btn" data-type="pilot">
+                              <i class="fas fa-user-check"></i>
+                          </button>
+                      </div>
+                  </div>
+                  
+                  <div class="space-y-3 account-list" id="student-accounts">
+                      <div class="account-card">
+                          <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Compte" class="account-avatar">
+                          <div class="account-info">
+                              <h3>Clara Rousseau</h3>
+                              <p>Master 2 - Marketing</p>
+                          </div>
+                          <div class="account-actions">
+                              <button class="action-btn edit-btn-sm" title="Modifier">
+                                  <i class="fas fa-pencil-alt"></i>
+                              </button>
+                              <button class="action-btn delete-btn-sm" title="Supprimer">
+                                  <i class="fas fa-trash-alt"></i>
+                              </button>
+                          </div>
+                      </div>
+                      
+                      <div class="account-card">
+                          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Compte" class="account-avatar">
+                          <div class="account-info">
+                              <h3>Maxime Dupont</h3>
+                              <p>Licence 3 - Informatique</p>
+                          </div>
+                          <div class="account-actions">
+                              <button class="action-btn edit-btn-sm" title="Modifier">
+                                  <i class="fas fa-pencil-alt"></i>
+                              </button>
+                              <button class="action-btn delete-btn-sm" title="Supprimer">
+                                  <i class="fas fa-trash-alt"></i>
+                              </button>
+                          </div>
+                      </div>
+                      
+                      <div class="account-card">
+                          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Compte" class="account-avatar">
+                          <div class="account-info">
+                              <h3>Julie Bernard</h3>
+                              <p>Master 1 - Design</p>
+                          </div>
+                          <div class="account-actions">
+                              <button class="action-btn edit-btn-sm" title="Modifier">
+                                  <i class="fas fa-pencil-alt"></i>
+                              </button>
+                              <button class="action-btn delete-btn-sm" title="Supprimer">
+                                  <i class="fas fa-trash-alt"></i>
+                              </button>
+                          </div>
+                      </div>
+                      
+                      <div class="account-card">
+                          <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Compte" class="account-avatar">
+                          <div class="account-info">
+                              <h3>Antoine Petit</h3>
+                              <p>Master 2 - Finance</p>
+                          </div>
+                          <div class="account-actions">
+                              <button class="action-btn edit-btn-sm" title="Modifier">
+                                  <i class="fas fa-pencil-alt"></i>
+                              </button>
+                              <button class="action-btn delete-btn-sm" title="Supprimer">
+                                  <i class="fas fa-trash-alt"></i>
+                              </button>
+                          </div>
+                      </div>
+                      
+                      <div class="account-card">
+                          <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Compte" class="account-avatar">
+                          <div class="account-info">
+                              <h3>Lucie Girard</h3>
+                              <p>Master 1 - Communication</p>
+                          </div>
+                          <div class="account-actions">
+                              <button class="action-btn edit-btn-sm" title="Modifier">
+                                  <i class="fas fa-pencil-alt"></i>
+                              </button>
+                              <button class="action-btn delete-btn-sm" title="Supprimer">
+                                  <i class="fas fa-trash-alt"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="space-y-3 account-list hidden" id="pilot-accounts">
+                      <div class="account-card">
+                          <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Compte" class="account-avatar">
+                          <div class="account-info">
+                              <h3>Pierre Martin</h3>
+                              <p>Pilote - Informatique</p>
+                          </div>
+                          <div class="account-actions">
+                              <button class="action-btn edit-btn-sm" title="Modifier">
+                                  <i class="fas fa-pencil-alt"></i>
+                              </button>
+                              <button class="action-btn delete-btn-sm" title="Supprimer">
+                                  <i class="fas fa-trash-alt"></i>
+                              </button>
+                          </div>
+                      </div>
+                      
+                      <div class="account-card">
+                          <img src="https://randomuser.me/api/portraits/women/58.jpg" alt="Compte" class="account-avatar">
+                          <div class="account-info">
+                              <h3>Marie Dubois</h3>
+                              <p>Pilote - Marketing</p>
+                          </div>
+                          <div class="account-actions">
+                              <button class="action-btn edit-btn-sm" title="Modifier">
+                                  <i class="fas fa-pencil-alt"></i>
+                              </button>
+                              <button class="action-btn delete-btn-sm" title="Supprimer">
+                                  <i class="fas fa-trash-alt"></i>
+                              </button>
+                          </div>
+                      </div>
+                      
+                      <div class="account-card">
+                          <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Compte" class="account-avatar">
+                          <div class="account-info">
+                              <h3>François Leroy</h3>
+                              <p>Pilote - Finance</p>
+                          </div>
+                          <div class="account-actions">
+                              <button class="action-btn edit-btn-sm" title="Modifier">
+                                  <i class="fas fa-pencil-alt"></i>
+                              </button>
+                              <button class="action-btn delete-btn-sm" title="Supprimer">
+                                  <i class="fas fa-trash-alt"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Wishlist et Entreprises -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+              <!-- Wishlist -->
+              <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+                  <div class="flex justify-between items-center mb-6">
+                      <h2 class="text-xl font-semibold">Wishlist populaires</h2>
+                      <button class="text-blue-400 text-sm hover:text-blue-300 transition-colors" onclick="loadModule('wishlist')">
+                          Gérer
+                      </button>
+                  </div>
+                  <div class="space-y-4">
+                      <div class="wishlist-card">
+                          <div class="wishlist-logo">
+                              <img src="https://logo.clearbit.com/orange.fr" alt="Orange">
+                          </div>
+                          <div class="wishlist-content">
+                              <h3>Développeur Backend Java</h3>
+                              <p>Orange Business Services</p>
+                          </div>
+                          <div class="wishlist-count">
+                              <span>14 étudiants</span>
+                          </div>
+                      </div>
+                      
+                      <div class="wishlist-card">
+                          <div class="wishlist-logo">
+                              <img src="https://logo.clearbit.com/loreal.com" alt="L'Oréal">
+                          </div>
+                          <div class="wishlist-content">
+                              <h3>Chef de produit digital</h3>
+                              <p>L'Oréal Paris</p>
+                          </div>
+                          <div class="wishlist-count">
+                              <span>12 étudiants</span>
+                          </div>
+                      </div>
+                      
+                      <div class="wishlist-card">
+                          <div class="wishlist-logo">
+                              <img src="https://logo.clearbit.com/capgemini.com" alt="Capgemini">
+                          </div>
+                          <div class="wishlist-content">
+                              <h3>Consultant IT junior</h3>
+                              <p>Capgemini</p>
+                          </div>
+                          <div class="wishlist-count">
+                              <span>9 étudiants</span>
+                          </div>
+                      </div>
+                      
+                      <div class="wishlist-card">
+                          <div class="wishlist-logo">
+                              <img src="https://logo.clearbit.com/bnpparibas.com" alt="BNP Paribas">
+                          </div>
+                          <div class="wishlist-content">
+                              <h3>Analyste risques financiers</h3>
+                              <p>BNP Paribas</p>
+                          </div>
+                          <div class="wishlist-count">
+                            <span>8 étudiants</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Entreprises -->
+            <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-semibold">Évaluations des entreprises</h2>
+                    <button class="text-blue-400 text-sm hover:text-blue-300 transition-colors" onclick="loadModule('evaluate-company')">
+                        Évaluer
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <div class="company-eval-card">
+                        <div class="company-eval-logo">
+                            <img src="https://logo.clearbit.com/google.com" alt="Google">
+                        </div>
+                        <div class="company-eval-content">
+                            <h3>Google France</h3>
+                            <div class="company-eval-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>5.0</span>
+                            </div>
+                        </div>
+                        <div class="company-eval-feedback">
+                            <span>12 avis</span>
+                        </div>
+                    </div>
+                    
+                    <div class="company-eval-card">
+                        <div class="company-eval-logo">
+                            <img src="https://logo.clearbit.com/ibm.com" alt="IBM">
+                        </div>
+                        <div class="company-eval-content">
+                            <h3>IBM France</h3>
+                            <div class="company-eval-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>4.5</span>
+                            </div>
+                        </div>
+                        <div class="company-eval-feedback">
+                            <span>8 avis</span>
+                        </div>
+                    </div>
+                    
+                    <div class="company-eval-card">
+                        <div class="company-eval-logo">
+                            <img src="https://logo.clearbit.com/lvmh.com" alt="LVMH">
+                        </div>
+                        <div class="company-eval-content">
+                            <h3>LVMH</h3>
+                            <div class="company-eval-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span>4.0</span>
+                            </div>
+                        </div>
+                        <div class="company-eval-feedback">
+                            <span>6 avis</span>
+                        </div>
+                    </div>
+                    
+                    <div class="company-eval-card">
+                        <div class="company-eval-logo">
+                            <img src="https://logo.clearbit.com/accenture.com" alt="Accenture">
+                        </div>
+                        <div class="company-eval-content">
+                            <h3>Accenture</h3>
+                            <div class="company-eval-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span>3.7</span>
+                            </div>
+                        </div>
+                        <div class="company-eval-feedback">
+                            <span>9 avis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="px-6 py-4 bg-slate-900/80 backdrop-blur-sm text-center text-gray-400 text-sm border-t border-slate-800/50">
+        <p>© 2025 StageConnect. Date: <span id="current-time">2025-03-08 17:09:39</span> | Utilisateur: <span id="current-user">RamiMohamed12</span></p>
+    </footer>
+</div>
+</div>
+
+<!-- Module Templates - Hidden by default -->
+<div id="module-templates" class="hidden">
+<!-- Template pour la création d'une entreprise -->
+        <div id="create-company-template">
+            <div class="p-6">
+                <h2 class="text-2xl font-semibold mb-6">Créer une nouvelle entreprise</h2>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label for="company-name">Nom de l'entreprise *</label>
+                            <input type="text" id="company-name" class="form-input" placeholder="Ex: Microsoft France" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-sector">Secteur d'activité *</label>
+                            <input type="text" id="company-sector" class="form-input" placeholder="Ex: Technologie, Finance..." required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-address">Adresse *</label>
+                        <input type="text" id="company-address" class="form-input" placeholder="Adresse complète" required>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="form-group">
+                            <label for="company-city">Ville *</label>
+                            <input type="text" id="company-city" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-postal">Code postal *</label>
+                            <input type="text" id="company-postal" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-country">Pays *</label>
+                            <input type="text" id="company-country" class="form-input" value="France">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label for="company-website">Site web</label>
+                            <input type="url" id="company-website" class="form-input" placeholder="https://...">
+                        </div>
+                        <div class="form-group">
+                            <label for="company-size">Taille de l'entreprise</label>
+                            <select id="company-size" class="form-select">
+                                <option value="">Sélectionnez</option>
+                                <option value="1-10">1-10 employés</option>
+                                <option value="11-50">11-50 employés</option>
+                                <option value="51-200">51-200 employés</option>
+                                <option value="201-500">201-500 employés</option>
+                                <option value="501-1000">501-1000 employés</option>
+                                <option value="1000+">1000+ employés</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-description">Description de l'entreprise</label>
+                        <textarea id="company-description" class="form-textarea" rows="4" placeholder="Présentez l'entreprise en quelques lignes..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-logo">Logo de l'entreprise</label>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-24 h-24 bg-slate-700/50 rounded-lg flex items-center justify-center border border-slate-600/50">
+                                <i class="fas fa-image text-3xl text-slate-500"></i>
+                            </div>
+                            <input type="file" id="company-logo" class="form-file" accept="image/*">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-contact">Contact principal</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" id="company-contact-name" class="form-input" placeholder="Nom du contact">
+                            <input type="email" id="company-contact-email" class="form-input" placeholder="Email du contact">
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" class="btn-cancel" onclick="loadModule('dashboard')">Annuler</button>
+                        <button type="submit" class="btn-submit">Créer l'entreprise</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <!-- Autres templates de module peuvent être ajoutés ici -->
+    <!--Cree un offre de stage--> 
+    <div id="create-offer-template">
+        <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-6">Créer un nouvelle offre de stage</h2>
+            <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-group">
+                        <label for="offer-title">Titre de l'offre *</label>
+                        <input type="text" id="offer-title" class="form-input" placeholder="Ex: Développeur Web Frontend" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="offer-company">Entreprise *</label>
+                        <select id="offer-company" class="form-select" required>
+                            <option value="">Sélectionnez une entreprise</option>
+                            <option value="1">Microsoft France</option>
+                            <option value="2">Airbus</option>
+                            <option value="3">Ubisoft</option>
+                            <option value="4">Decathlon</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="offer-location">Lieu *</label>
+                        <input type="text" id="offer-location" class="form-input" placeholder="Ex: Paris" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="offer-duration">Durée *</label>
+                        <input type="text" id="offer-duration" class="form-input" placeholder="Ex: 6 mois" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="offer-description">Description de l'offre</label>
+                        <textarea id="company-description" class="form-textarea" rows="4" placeholder="Déscribe the internship offer..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company-contact">Contact principal</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" id="company-contact-name" class="form-input" placeholder="Nom du contact">
+                            <input type="email" id="company-contact-email" class="form-input" placeholder="Email du contact">
+                            <input type="tel" id="company-contact-phone" class="form-input" placeholder="Téléphone du contact">
+                        </div>
+
+                        <div class="flex justify-end space-x-4">
+                            <button type="button" class="btn-cancel" onclick="loadModule('dashboard')">Annuler</button>
+                            <button type="submit" class="btn-submit">Créer le pilote</button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- creer un pilote -->
+    <div id="create-pilot-template">
+        <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-6">Créer un nouveau pilote</h2>
+            <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-group">
+                        <label for="id-pilot">Identifiant du pilote</label>
+                        <input type="text" id="id-pilot" class="form-input" placeholder="Identifiant du pilote" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pilot-name">Nom du pilote *</label>
+                        <input type="text" id="pilot-name" class="form-input" placeholder="Nom du pilote" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pilot-location">location</label>
+                        <input type="text" id="pilot-location" class="form-input" placeholder="location" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pilot-email">Email du pilote *</label>
+                        <input type="email" id="pilot-email" class="form-input" placeholder="Email du pilote" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pilot-password">Mot de passe *</label>
+                        <input type="password" id="pilot-password" class="form-input" placeholder="Mot de passe" required>
+                    </div>
+
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" class="btn-cancel" onclick="loadModule('dashboard')">Annuler</button>
+                        <button type="submit" class="btn-submit">Créer le pilote</button>
+                    </div>
+                </div>
+            </form>
+        </div>            
+    </div>
+    <!-- creer un etudiant -->
+    <div id="create-student-template">
+        <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-6">Créer un nouveau etudiant</h2>
+            <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-group">
+                        <label for="id-student">Identifiant du pilote</label>
+                        <input type="text" id="id-student" class="form-input" placeholder="Identifiant de l'etudiant" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-name">Nom de l'etudiant </label>
+                        <input type="text" id="student" class="form-input" placeholder="Nom de l'etudiant" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="student-date_of_birth">Date de naissance</label>
+                        <input type="date" id="student-date_of_birth" class="form-input" placeholder="Date de naissance" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-location">location</label>
+                        <input type="text" id="student-location" class="form-input" placeholder="location" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-promotion">year</label>
+                        <input type="text" id="student-promotion" class="form-input" placeholder="Promotion" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-email">Email de l'etudiant</label>
+                        <input type="email" id="student-email" class="form-input" placeholder="Email de l'etudiant" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-password">Mot de passe </label>
+                        <input type="password" id="student-password" class="form-input" placeholder="Mot de passe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-phone">Telephone</label>
+                        <input type="text" id="student-phone" class="form-input" placeholder="Telephone" required>
+                    </div>
+
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" class="btn-cancel" onclick="loadModule('dashboard')">Annuler</button>
+                        <button type="submit" class="btn-submit">Créer l'étudiant</button>
+                    </div>
+                </div>
+            </form>
+        </div>            
+    </div>
+
+    <!-- Modifier une entreprise -->
+<div id="edit-company-template">
+    <div class="p-6">
+        <h2 class="text-2xl font-semibold mb-6">Modifier une entreprise</h2>
+
+        <!-- Conteneur pour les entreprises -->
+        <div class="company-container">
+            <div class="company-card">
+                <div class="company-details">
+                    <h3 class="company-name">Microsoft France</h3>
+                    <p class="company-id">ID: 12345</p>
+                    <p class="company-sector"><i class="fas fa-industry"></i> Technologie</p>
+                    <p class="company-location"><i class="fas fa-map-marker-alt"></i> Paris</p>
+                    <p class="company-email"><i class="fas fa-envelope"></i> contact@microsoft.fr</p>
+                    <p class="company-phone"><i class="fas fa-phone"></i> 01 23 45 67 89</p>
+                </div>
+                <div class="company-actions">
+                    <button class="btn-edit" onclick="editCompany(12345)">Modifier</button>
+                    <button class="btn-delete" onclick="deleteCompany(12345)">Supprimer</button>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-details">
+                    <h3 class="company-name">Airbus</h3>
+                    <p class="company-id">ID: 67890</p>
+                    <p class="company-sector"><i class="fas fa-industry"></i> Aéronautique</p>
+                    <p class="company-location"><i class="fas fa-map-marker-alt"></i> Toulouse</p>
+                    <p class="company-email"><i class="fas fa-envelope"></i> contact@airbus.com</p>
+                    <p class="company-phone"><i class="fas fa-phone"></i> 05 67 89 01 23</p>
+                </div>
+                <div class="company-actions">
+                    <button class="btn-edit" onclick="editCompany(67890)">Modifier</button>
+                    <button class="btn-delete" onclick="deleteCompany(67890)">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Modifier un offre de stage -->
+
+<div id="edit-offer-template">
+    <div class="p-6">
+        <h2 class="text-2xl font-semibold mb-6">Modifier une offre de stage</h2>
+        <div class="offer-container"></div>
+    </div>
+        <!-- Conteneur commun pour toutes les offres -->
+        <div class="offer-container">
+            <div class="offer-card">
+                <div class="offer-details">
+                    <h3 class="offer-title">Développeur Web Frontend</h3>
+                    <p class="offer-company">Technovate</p>
+                    <p class="offer-location"><i class="fas fa-map-marker-alt"></i> Paris</p>
+                    <p class="offer-duration"><i class="fas fa-clock"></i> 6 mois</p>
+                    <p class="offer-description">Description de l'offre de stage...</p>
+                </div>
+                <div class="offer-actions">
+                    <button class="btn-edit" onclick="editOffer()">Modifier</button>
+                    <button class="btn-delete" onclick="deleteOffer()">Supprimer</button>
+                </div>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-details">
+                    <h3 class="offer-title">Data Scientist</h3>
+                    <p class="offer-company">Airbus</p>
+                    <p class="offer-location"><i class="fas fa-map-marker-alt"></i> Toulouse</p>
+                    <p class="offer-duration"><i class="fas fa-clock"></i> 5 mois</p>
+                    <p class="offer-description">Description de l'offre de stage...</p>
+                </div>
+                <div class="offer-actions">
+                    <button class="btn-edit" onclick="editOffer()">Modifier</button>
+                    <button class="btn-delete" onclick="deleteOffer()">Supprimer</button>
+                </div>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-details">
+                    <h3 class="offer-title">UX/UI Designer</h3>
+                    <p class="offer-company">Ubisoft</p>
+                    <p class="offer-location"><i class="fas fa-map-marker-alt"></i> Montpellier</p>
+                    <p class="offer-duration"><i class="fas fa-clock"></i> 4 mois</p>
+                    <p class="offer-description">Description de l'offre de stage...</p>
+                </div>
+                <div class="offer-actions">
+                    <button class="btn-edit" onclick="editOffer()">Modifier</button>
+                    <button class="btn-delete" onclick="deleteOffer()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   <!-- Modifier un pilote -->
+<div id="edit-pilot-template">
+    <div class="p-6">
+        <h2 class="text-2xl font-semibold mb-6">Modifier un pilote</h2>
+        <div class="pilot-container"></div>
+    </div>
+        <!-- Conteneur pour les pilotes -->
+        <div class="pilot-container">
+            <div class="pilot-card">
+                <div class="pilot-details">
+                    <h3 class="pilot-name">Jean Dupont</h3>
+                    <p class="pilot-id">ID: 12345</p>
+                    <p class="pilot-location"><i class="fas fa-map-marker-alt"></i> Paris</p>
+                    <p class="pilot-email"><i class="fas fa-envelope"></i> jean.dupont@example.com</p>
+                    <p class="pilot-phone"><i class="fas fa-phone"></i> 06 12 34 56 78</p>
+                </div>
+                <div class="pilot-actions">
+                    <button class="btn-edit" onclick="editPilot()">Modifier</button>
+                    <button class="btn-delete" onclick="deletePilot()">Supprimer</button>
+                </div>
+            </div>
+
+            <div class="pilot-card">
+                <div class="pilot-details">
+                    <h3 class="pilot-name">Marie Durand</h3>
+                    <p class="pilot-id">ID: 67890</p>
+                    <p class="pilot-location"><i class="fas fa-map-marker-alt"></i> Lyon</p>
+                    <p class="pilot-email"><i class="fas fa-envelope"></i> marie.durand@example.com</p>
+                    <p class="pilot-phone"><i class="fas fa-phone"></i> 06 98 76 54 32</p>
+                </div>
+                <div class="pilot-actions">
+                    <button class="btn-edit" onclick="editPilot()">Modifier</button>
+                    <button class="btn-delete" onclick="deletePilot()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Modifier un étudiant -->
+    <div id="edit-student-template">
+        <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-6">Modifier un étudiant</h2>
+            <div class="student-container"></div>
+        </div>
+        <!-- Conteneur pour les étudiants -->
+        <div class="student-container">
+            <div class="student-card">
+                <div class="student-details">
+                    <h3 class="student-name">Alice Dupont</h3>
+                    <p class="student-id">ID: 12345</p>
+                    <p class="student-dob"><i class="fas fa-calendar"></i> 12/03/2000</p>
+                    <p class="student-location"><i class="fas fa-map-marker-alt"></i> Lyon</p>
+                    <p class="student-promotion">Promotion: 2024</p>
+                    <p class="student-email"><i class="fas fa-envelope"></i> alice.dupont@example.com</p>
+                    <p class="student-phone"><i class="fas fa-phone"></i> 06 12 34 56 78</p>
+                </div>
+                <div class="student-actions">
+                    <button class="btn-edit" onclick="editStudent()">Modifier</button>
+                    <button class="btn-delete" onclick="deleteStudent()">Supprimer</button>
+                </div>
+            </div>
+
+            <div class="student-card">
+                <div class="student-details">
+                    <h3 class="student-name">Marc Durand</h3>
+                    <p class="student-id">ID: 67890</p>
+                    <p class="student-dob"><i class="fas fa-calendar"></i> 05/07/1999</p>
+                    <p class="student-location"><i class="fas fa-map-marker-alt"></i> Paris</p>
+                    <p class="student-promotion">Promotion: 2023</p>
+                    <p class="student-email"><i class="fas fa-envelope"></i> marc.durand@example.com</p>
+                    <p class="student-phone"><i class="fas fa-phone"></i> 06 98 76 54 32</p>
+                </div>
+                <div class="student-actions">
+                    <button class="btn-edit" onclick="editStudent()">Modifier</button>
+                    <button class="btn-delete" onclick="deleteStudent()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- stats des etudiants-->
+    <h2>Statistiques générales des étudiants</h2>
+    <div class="chart-container">
+        <canvas id="studentChart"></canvas>
+    </div>
+    </div>
+   
+<!-- Notifications Panel (Hidden by default) -->
+<div id="notifications-panel" class="notifications-panel">
+    <div class="notifications-header">
+        <h3>Notifications</h3>
+        <button id="close-notifications"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="notifications-body">
+        <div class="notification-item unread">
+            <div class="notification-icon bg-blue-500/20">
+                <i class="fas fa-briefcase text-blue-500"></i>
+            </div>
+            <div class="notification-content">
+                <p class="notification-text">Nouvelle offre de stage publiée</p>
+                <p class="notification-details">Développeur Web Frontend - Technovate</p>
+                <p class="notification-time">Il y a 12 minutes</p>
+            </div>
+    </div>
+    <div class="notification-item unread">
+        <div class="notification-icon bg-emerald-500/20">
+            <i class="fas fa-building text-emerald-500"></i>
+        </div>
+        <div class="notification-content">
+            <p class="notification-text">Nouvelle entreprise partenaire</p>
+            <p class="notification-details">DataViz Solutions a rejoint la plateforme</p>
+            <p class="notification-time">Il y a 42 minutes</p>
+        </div>
+    </div>
+    <div class="notification-item">
+        <div class="notification-icon bg-amber-500/20">
+            <i class="fas fa-user-graduate text-amber-500"></i>
+        </div>
+        <div class="notification-content">
+            <p class="notification-text">Statistiques mises à jour</p>
+            <p class="notification-details">Taux de placement des étudiants: 78%</p>
+            <p class="notification-time">Hier</p>
+        </div>
+    </div>
+</div>
+<div class="notifications-footer">
+    <button>Marquer tout comme lu</button>
+    <button>Voir toutes les notifications</button>
+</div>
+</div>
+
+<!-- Dialog Modals -->
+<div class="modal" id="confirmation-modal">
+<div class="modal-content">
+    <div class="modal-header">
+        <h3 class="modal-title">Confirmation</h3>
+        <button class="modal-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+        <p id="confirmation-message">Êtes-vous sûr de vouloir effectuer cette action?</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn-cancel modal-close">Annuler</button>
+        <button class="btn-danger" id="confirm-action-btn">Confirmer</button>
+    </div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="sidebar.js"></script>
+
+<!-- Script pour support PWA -->
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+    .then(function(registration) {
+        console.log('Service Worker registered with scope:', registration.scope);
+    }).catch(function(error) {
+        console.log('Service Worker registration failed:', error);
+    });
+}
+</script>
+</body>
+</html>

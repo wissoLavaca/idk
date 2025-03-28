@@ -1,0 +1,202 @@
+/* Large Screens (1024px and above) */
+@media (min-width: 1024px) {
+    .home-section {
+        left: 260px;
+        width: calc(100% - 260px);
+    }
+
+    .chart-container {
+        width: 80%;
+        max-width: 800px;
+        margin: auto;
+        background: #161b22;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+}
+
+
+/* Medium Screens (768px to 1023px) */
+@media (max-width: 1024px) {
+    /* Sidebar Collapse */
+    .sidebar {
+        width: 78px;
+    }
+
+    .sidebar.close {
+        width: 78px;
+    }
+
+    .home-section {
+        left: 78px;
+        width: calc(100% - 78px);
+    }
+
+    /* Hide Sidebar Text */
+    .sidebar .logo-details .logo_name,
+    .sidebar .nav-links li a .link_name,
+    .sidebar .profile-details .profile_name,
+    .sidebar .profile-details .job {
+        display: none;
+    }
+
+    /* Center Logo */
+    .sidebar .logo-details {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .sidebar .nav-links li .iocn-link {
+        display: block;
+    }
+}
+
+/* Tablet Screens (768px and below) */
+@media (max-width: 768px) {
+    /* Card Adjustments */
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .stat-card .icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .stat-card .value {
+        font-size: 1.25rem;
+    }
+
+    /* Stage Details Layout */
+    .stage-details {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    /* Candidature Layout */
+    .candidature-student {
+        flex: 2;
+    }
+
+    .candidature-info {
+        flex: 3;
+    }
+
+    /* Notifications Panel */
+    .notifications-panel {
+        width: 320px;
+    }
+
+    /* Grid Layouts */
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* Cards Container */
+    .offer-container,
+    .student-container,
+    .pilot-container,
+    .company-container {
+        gap: 1rem;
+    }
+
+    /* Chart Container */
+    .chart-container {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+/* Mobile Screens (640px and below) */
+@media (max-width: 640px) {
+    /* Sidebar Mobile View */
+    .sidebar {
+        z-index: 10000;
+        width: 0;
+    }
+    
+    .sidebar.close {
+        width: 0;
+    }
+    
+    .sidebar.open {
+        width: 250px;
+    }
+
+    /* Main Content */
+    .home-section {
+        left: 0;
+        width: 100%;
+    }
+
+    .sidebar.close ~ .home-section {
+        left: 0;
+        width: 100%;
+    }
+
+    /* Card Layouts */
+    .candidature-card,
+    .stage-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .candidature-student,
+    .stage-logo {
+        margin-bottom: 0.75rem;
+    }
+
+    .candidature-actions,
+    .candidature-info {
+        margin-top: 0.75rem;
+        width: 100%;
+    }
+
+    .candidature-actions {
+        justify-content: space-between;
+    }
+
+    /* Notifications Panel */
+    .notifications-panel {
+        width: 100%;
+    }
+
+    /* Cards */
+    .offer-card,
+    .student-card,
+    .pilot-card,
+    .company-card {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    /* Form Elements */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 0 10px;
+    }
+}
+
+/* Small Mobile Screens (320px and below) */
+@media (max-width: 320px) {
+    .stat-card .value {
+        font-size: 1.1rem;
+    }
+
+    .modal-content {
+        padding: 0.75rem;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+        padding: 0.5rem 0.75rem;
+    }
+}

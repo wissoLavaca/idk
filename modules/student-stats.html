@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistiques des étudiants</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            background: #161b22;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="lg:col-span-2">
+        <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover-card border border-slate-700/50">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-semibold">Statistiques des étudiants</h2>
+                <div class="flex space-x-2">
+                    <button class="bg-slate-700/50 hover:bg-slate-600/50 text-sm py-1 px-3 rounded-lg transition-all filter-btn" data-period="30">30j</button>
+                    <button class="bg-blue-600/50 text-sm py-1 px-3 rounded-lg transition-all filter-btn active" data-period="90">90j</button>
+                    <button class="bg-slate-700/50 hover:bg-slate-600/50 text-sm py-1 px-3 rounded-lg transition-all filter-btn" data-period="365">1an</button>
+                </div>
+            </div>
+            <div class="chart-container h-72">
+                <canvas id="studentsChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        initCharts();
+    });
+
+    function initCharts() {
+        const studentsChartElem = document.getElementById('studentsChart');
+        if (studentsChartElem) {
+            const activeGradient = studentsChartElem.getContext('2d').createLinearGradient(0, 0, 0, 400);
+            activeGradient.addColorStop(0, 'rgba(16, 185, 129, 0.5)'); // Green for active
+            activeGradient.addColorStop(1, 'rgba(16, 185, 129, 0.05)');
+            
+            const inactiveGradient = studentsChartElem.getContext('2d').createLinearGradient(0, 0, 0, 400);
+            inactiveGradient.addColorStop(0, 'rgba(239, 68, 68, 0.5)'); // Red for inactive
+            inactiveGradient.addColorStop(1, 'rgba(239, 68, 68, 0.05)');
+            
+            const studentsChart = new Chart(studentsChartElem, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Fév', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'],
+                    datasets: [
+                        {
+                            label: 'Étudiants Actifs',
+                            data: [80, 85, 90, 88, 92, 95, 89, 87, 94, 96, 98, 100],
+                            fill: true,
+                            backgroundColor: activeGradient,
+                            borderColor: '#10b981',
+                            borderWidth: 2,
+                            tension: 0.4,
+                            pointBackgroundColor: '#10b981',
+                            pointBorderColor: '#fff',
+                            pointRadius: 4
+                        },
+                        {
+                            label: 'Étudiants Inactifs',
+                            data: [20, 15, 10, 12, 8, 5, 11, 13, 6, 4, 2, 0],
+                            fill: true,
+                            backgroundColor: inactiveGradient,
+                            borderColor: '#ef4444',
+                            borderWidth: 2,
+                            tension: 0.4,
+                            pointBackgroundColor: '#ef4444',
+                            pointBorderColor: '#fff',
+                            pointRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#f3f4f6',
+                                font: {
+                                    family: 'Montserrat'
+                                },
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.8)',
+                            bodyFont: {
+                                family: 'Montserrat'
+                            },
+                            titleFont: {
+                                family: 'Montserrat'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#9ca3af',
+                                font: {
+                                    family: 'Montserrat'
+                                }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(148, 163, 184, 0.1)'
+                            },
+                            ticks: {
+                                color: '#9ca3af',
+                                font: {
+                                    family: 'Montserrat'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
+    </script>
+</body>
+</html>

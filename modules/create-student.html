@@ -1,0 +1,70 @@
+<!-- creer un etudiant -->
+<div id="create-student-template">
+    <div class="p-6">
+        <!-- Page Header -->
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-semibold">Créer un nouveau étudiant</h1>
+        </div>
+
+        <!-- Form Card -->
+        <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-slate-700/50">
+            <form class="space-y-6" id="create-student-form" onsubmit="handleCreateStudent(event)">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-group">
+                        <label for="id-student" class="block text-sm font-medium mb-2">Identifiant de l'étudiant</label>
+                        <input type="text" id="id-student" class="form-input w-full" placeholder="Identifiant de l'étudiant" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-name" class="block text-sm font-medium mb-2">Nom de l'étudiant</label>
+                        <input type="text" id="student-name" class="form-input w-full" placeholder="Nom de l'étudiant" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="student-date_of_birth" class="block text-sm font-medium mb-2">Date de naissance</label>
+                        <input type="date" id="student-date_of_birth" class="form-input w-full" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-location" class="block text-sm font-medium mb-2">Centre</label>
+                        <select id="student-location" class="form-select w-full">
+                            <option value="paris">Paris</option>
+                            <option value="lyon">Lyon</option>
+                            <option value="marseille">Marseille</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-promotion" class="block text-sm font-medium mb-2">Promotion</label>
+                        <select id="student-promotion" class="form-select w-full">
+                            <option value="2">2ème année</option>
+                            <option value="3">3ème année</option>
+                            <option value="4">4ème année</option>
+                            <option value="5">5ème année</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-email" class="block text-sm font-medium mb-2">Email</label>
+                        <input type="email" id="student-email" class="form-input w-full" placeholder="email@exemple.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-password" class="block text-sm font-medium mb-2">Mot de passe</label>
+                        <input type="password" id="student-password" class="form-input w-full" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-phone" class="block text-sm font-medium mb-2">Téléphone</label>
+                        <input type="tel" id="student-phone" class="form-input w-full" placeholder="06 XX XX XX XX" required>
+                    </div>
+                </div>
+
+                <div class="flex justify-end space-x-4 mt-6">
+                    <button type="button" class="btn-secondary" onclick="loadModule('students')">Annuler</button>
+                    <button type="submit" class="btn-primary">Créer l'étudiant</button>
+                </div>
+            </form>
+        </div>
+    </div>            
+</div>

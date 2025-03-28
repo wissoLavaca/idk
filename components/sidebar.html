@@ -1,0 +1,130 @@
+<div class="sidebar close">
+    <div class="logo-details">
+        <div class="logo-container">
+            <div class="logo-ring"></div>
+            <div class="logo-core"></div>
+        </div>
+        <span class="logo_name font-['Orbitron']">StageConnect</span>
+    </div>
+    
+    <ul class="nav-links">
+        <li class="active">
+            <a href="index.html">
+                <i class='bx bxs-dashboard'></i>
+                <span class="link_name">Tableau de bord</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="index.html">Tableau de bord</a></li>
+            </ul>
+        </li>
+        
+        <!-- Gestion des entreprises -->
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-building-house'></i>
+                    <span class="link_name">Entreprises</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Entreprises</a></li>
+                <li><a href="#" onclick="loadModule('create-company')">Créer</a></li>
+                <li><a href="#" onclick="loadModule('edit-company')">Modifier</a></li>
+            </ul>
+        </li>
+        
+        <!-- Rest of sidebar menu items -->
+         <!-- Gestion des offres de stage -->
+         <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-briefcase'></i>
+                    <span class="link_name">Offres de stage</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Offres de stage</a></li>
+                <li><a href="#" onclick="loadModule('create-offer')">Créer</a></li>
+                <li><a href="#" onclick="loadModule('edit-offer')">Modifier</a></li>
+            </ul>
+        </li>
+        
+        <!-- Gestion des pilotes -->
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-user-check'></i>
+                    <span class="link_name">Pilotes</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Pilotes</a></li>
+                <li><a href="#" onclick="loadModule('create-pilot')">Créer</a></li>
+                <li><a href="#" onclick="loadModule('edit-pilot')">Modifier</a></li>                    
+            </ul>
+        </li>
+        
+        <!-- Gestion des étudiants -->
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-user-pin'></i>
+                    <span class="link_name">Étudiants</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Étudiants</a></li>
+                <li><a href="#" onclick="loadModule('create-student')">Créer</a></li>
+                <li><a href="#" onclick="loadModule('edit-student')">Modifier</a></li>
+                <li><a href="#" onclick="loadModule('student-stats')">Statistiques</a></li>
+            </ul>
+        </li>
+        
+        <!-- Gestion des candidatures -->
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-file'></i>
+                    <span class="link_name">Candidatures</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Candidatures</a></li>
+                <li><a href="#" onclick="loadModule('wishlist')">Wish-list</a></li>
+                <li><a href="#" onclick="loadModule('applications')">Candidatures en cours</a></li>
+                <li><a href="#" onclick="loadModule('add-to-wishlist')">Ajouter à la wish-list</a></li>
+                <li><a href="#" onclick="loadModule('remove-from-wishlist')">Retirer de la wish-list</a></li>
+                <li><a href="#" onclick="loadModule('apply-to-offer')">Postuler à une offre</a></li>
+            </ul>
+        </li>
+        
+        <!-- Paramètres -->
+        <li>
+            <a href="#" onclick="loadModule('settings')">
+                <i class='bx bx-cog'></i>
+                <span class="link_name">Paramètres</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#" onclick="loadModule('settings')">Paramètres</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="profile-details">
+                <div class="profile-content">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80" alt="Profile">
+                </div>
+                <div class="name-job">
+                    <div class="profile_name">RamiMohamed12</div>
+                    <div class="job">Pilote de Promotion</div>
+                </div>
+                <i class='bx bx-log-out' id="logout-btn"></i>
+            </div>
+        </li>
+    </ul>
+</div>

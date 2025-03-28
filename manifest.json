@@ -1,0 +1,83 @@
+{
+    "name": "StageConnect - Pilotage",
+    "short_name": "StageConnect",
+    "description": "Plateforme de gestion de stages et d'entreprises",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#0f172a",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "/icons/icon-72.png",
+        "type": "image/png",
+        "sizes": "72x72"
+      },
+      {
+        "src": "/icons/icon-96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "/icons/icon-128.png",
+        "type": "image/png",
+        "sizes": "128x128"
+      },
+      {
+        "src": "/icons/icon-144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+      },
+      {
+        "src": "/icons/icon-152.png",
+        "type": "image/png",
+        "sizes": "152x152"
+      },
+      {
+        "src": "/icons/icon-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/icons/icon-384.png",
+        "type": "image/png",
+        "sizes": "384x384"
+      },
+      {
+        "src": "/icons/icon-512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "any maskable"
+      }
+    ],
+    "shortcuts": [
+      {
+        "name": "Rechercher une offre",
+        "short_name": "Offres",
+        "description": "Rechercher et consulter les offres de stage",
+        "url": "/index.html?module=search-offer",
+        "icons": [{ "src": "/icons/search-128.png", "sizes": "128x128" }]
+      },
+      {
+        "name": "Candidatures en attente",
+        "short_name": "Candidatures",
+        "description": "Voir les candidatures en attente",
+        "url": "/index.html?module=applications",
+        "icons": [{ "src": "/icons/application-128.png", "sizes": "128x128" }]
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/screenshots/dashboard.png",
+        "type": "image/png",
+        "sizes": "1280x720",
+        "form_factor": "wide"
+      },
+      {
+        "src": "/screenshots/mobile.png",
+        "type": "image/png",
+        "sizes": "375x812",
+        "form_factor": "narrow"
+      }
+    ]
+  }

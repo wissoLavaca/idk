@@ -1,0 +1,78 @@
+<!-- Modifier un offre de stage -->
+
+<div id="edit-offer-template">
+    <div class="p-6">
+        <!-- Page Header -->
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-semibold">Modifier une offre de stage</h1>
+        </div>
+
+        <!-- Offers List Card -->
+        <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-slate-700/50">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Offer Card 1 -->
+                <div class="bg-slate-700/30 rounded-xl p-4">
+                    <div class="flex flex-col space-y-3">
+                        <h3 class="text-lg font-semibold">Développeur Web Frontend</h3>
+                        <p class="text-sm text-gray-400">Technovate</p>
+                        <div class="space-y-2">
+                            <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i>Paris</p>
+                            <p class="text-sm"><i class="fas fa-clock mr-2"></i>6 mois</p>
+                            <p class="text-sm text-gray-400">Description de l'offre de stage...</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-end space-x-3 mt-4">
+                        <button class="action-btn view-btn" onclick="editOffer(1)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="action-btn reject-btn" onclick="deleteOffer(1)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Offer Card 2 -->
+                <div class="bg-slate-700/30 rounded-xl p-4">
+                    <div class="flex flex-col space-y-3">
+                        <h3 class="text-lg font-semibold">Data Scientist</h3>
+                        <p class="text-sm text-gray-400">Airbus</p>
+                        <div class="space-y-2">
+                            <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i>Toulouse</p>
+                            <p class="text-sm"><i class="fas fa-clock mr-2"></i>5 mois</p>
+                            <p class="text-sm text-gray-400">Description de l'offre de stage...</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-end space-x-3 mt-4">
+                        <button class="action-btn view-btn" onclick="editOffer(2)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="action-btn reject-btn" onclick="deleteOffer(2)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Offer Card 3 -->
+                <div class="bg-slate-700/30 rounded-xl p-4">
+                    <div class="flex flex-col space-y-3">
+                        <h3 class="text-lg font-semibold">UX/UI Designer</h3>
+                        <p class="text-sm text-gray-400">Ubisoft</p>
+                        <div class="space-y-2">
+                            <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i>Montpellier</p>
+                            <p class="text-sm"><i class="fas fa-clock mr-2"></i>4 mois</p>
+                            <p class="text-sm text-gray-400">Description de l'offre de stage...</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-end space-x-3 mt-4">
+                        <button class="action-btn view-btn" onclick="editOffer(3)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="action-btn reject-btn" onclick="deleteOffer(3)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

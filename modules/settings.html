@@ -1,0 +1,121 @@
+<div class="p-6">
+    <!-- Page Header -->
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-semibold">Paramètres</h1>
+        <button class="btn-primary" onclick="saveSettings()">
+            <i class="fas fa-save"></i>
+            <span>Sauvegarder</span>
+        </button>
+    </div>
+
+    <!-- Settings Sections -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Profile Settings -->
+        <div class="lg:col-span-2">
+            <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-slate-700/50">
+                <h2 class="text-xl font-semibold mb-6">Profil</h2>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label for="user-name">Nom d'utilisateur</label>
+                            <input type="text" id="user-name" class="form-input" value="RamiMohamed12">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-email">Email</label>
+                            <input type="email" id="user-email" class="form-input" value="rami.mohamed@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-phone">Téléphone</label>
+                            <input type="tel" id="user-phone" class="form-input" value="+33 6 12 34 56 78">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-language">Langue</label>
+                            <select id="user-language" class="form-select">
+                                <option value="fr">Français</option>
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Security Settings -->
+        <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-slate-700/50">
+            <h2 class="text-xl font-semibold mb-6">Sécurité</h2>
+            <form class="space-y-6">
+                <div class="form-group">
+                    <label for="current-password">Mot de passe actuel</label>
+                    <input type="password" id="current-password" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="new-password">Nouveau mot de passe</label>
+                    <input type="password" id="new-password" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirmer le mot de passe</label>
+                    <input type="password" id="confirm-password" class="form-input">
+                </div>
+            </form>
+        </div>
+
+        <!-- Notification Settings -->
+        <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-slate-700/50">
+            <h2 class="text-xl font-semibold mb-6">Notifications</h2>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <span>Notifications par email</span>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span>Notifications push</span>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span>Sons de notification</span>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Display Settings -->
+        <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-slate-700/50">
+            <h2 class="text-xl font-semibold mb-6">Affichage</h2>
+            <div class="space-y-4">
+                <div class="form-group">
+                    <label for="theme-select">Thème</label>
+                    <select id="theme-select" class="form-select">
+                        <option value="dark">Sombre</option>
+                        <option value="light">Clair</option>
+                        <option value="system">Système</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="font-size">Taille de police</label>
+                    <select id="font-size" class="form-select">
+                        <option value="small">Petite</option>
+                        <option value="medium" selected>Moyenne</option>
+                        <option value="large">Grande</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function saveSettings() {
+    // Add your settings save logic here
+    alert('Paramètres sauvegardés avec succès!');
+}
+</script>

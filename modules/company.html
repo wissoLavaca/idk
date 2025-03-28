@@ -1,0 +1,91 @@
+<div class="p-6">
+    <!-- Page Header -->
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-semibold">Gestion des Entreprises</h1>
+        <button class="btn-primary" onclick="loadModule('create-company')">
+            <i class="fas fa-plus-circle"></i>
+            <span>Nouvelle Entreprise</span>
+        </button>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="stat-card">
+            <div class="icon bg-blue-500/20 text-blue-500">
+                <i class="fas fa-building"></i>
+            </div>
+            <div>
+                <h3>Total Entreprises</h3>
+                <p class="value">84</p>
+                <p class="change positive"><i class="fas fa-arrow-up"></i> 12%</p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="icon bg-emerald-500/20 text-emerald-500">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <div>
+                <h3>Partenariats Actifs</h3>
+                <p class="value">56</p>
+                <p class="change positive"><i class="fas fa-arrow-up"></i> 5%</p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="icon bg-amber-500/20 text-amber-500">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div>
+                <h3>Offres de Stage</h3>
+                <p class="value">128</p>
+                <p class="change positive"><i class="fas fa-arrow-up"></i> 8%</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Company List -->
+    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-slate-700/50">
+        <!-- Search and Filter -->
+        <div class="flex justify-between items-center mb-6">
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="Rechercher une entreprise..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <select class="form-select w-40">
+                    <option value="">Tous secteurs</option>
+                    <option value="tech">Technologie</option>
+                    <option value="finance">Finance</option>
+                    <option value="health">Santé</option>
+                </select>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="text-sm text-gray-400">Trier par:</span>
+                <select class="form-select w-32">
+                    <option value="name">Nom</option>
+                    <option value="recent">Plus récent</option>
+                    <option value="offers">Nb offres</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Companies Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Company Cards -->
+            <!-- ... existing company cards ... -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-between items-center mt-6">
+            <span class="text-sm text-gray-400">Affichage 1-9 sur 84 entreprises</span>
+            <div class="flex space-x-2">
+                <button class="page-btn disabled"><i class="fas fa-chevron-left"></i></button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>

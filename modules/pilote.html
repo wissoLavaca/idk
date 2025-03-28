@@ -1,0 +1,107 @@
+<div class="p-6">
+    <!-- Page Header -->
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-semibold">Gestion des Pilotes</h1>
+        <button class="btn-primary" onclick="loadModule('create-pilot')">
+            <i class="fas fa-plus-circle"></i>
+            <span>Nouveau Pilote</span>
+        </button>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="stat-card">
+            <div class="icon bg-purple-500/20 text-purple-500">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <div>
+                <h3>Total Pilotes</h3>
+                <p class="value">24</p>
+                <p class="change positive"><i class="fas fa-arrow-up"></i> 2</p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="icon bg-blue-500/20 text-blue-500">
+                <i class="fas fa-users"></i>
+            </div>
+            <div>
+                <h3>Étudiants Supervisés</h3>
+                <p class="value">248</p>
+                <p class="change neutral"><i class="fas fa-minus"></i></p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="icon bg-emerald-500/20 text-emerald-500">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <div>
+                <h3>Taux de Placement</h3>
+                <p class="value">78%</p>
+                <p class="change positive"><i class="fas fa-arrow-up"></i> 5%</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pilots List -->
+    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-slate-700/50">
+        <!-- Search and Filter -->
+        <div class="flex justify-between items-center mb-6">
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="Rechercher un pilote..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <select class="form-select w-40">
+                    <option value="">Tous départements</option>
+                    <option value="info">Informatique</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="finance">Finance</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Pilots Grid -->
+        <div class="grid grid-cols-1 gap-4">
+            <!-- Pilot Cards -->
+            <div class="pilot-card">
+                <div class="flex items-center space-x-4">
+                    <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Pilot" class="w-12 h-12 rounded-full">
+                    <div>
+                        <h3 class="font-semibold">Pierre Martin</h3>
+                        <p class="text-sm text-gray-400">Pilote - Département Informatique</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-sm text-gray-400">
+                        <p><i class="fas fa-users"></i> 42 étudiants</p>
+                        <p><i class="fas fa-briefcase"></i> 15 stages validés</p>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="action-btn edit-btn" title="Modifier">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button class="action-btn delete-btn" title="Supprimer">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more pilot cards here -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-between items-center mt-6">
+            <span class="text-sm text-gray-400">Affichage 1-10 sur 24 pilotes</span>
+            <div class="flex space-x-2">
+                <button class="page-btn disabled"><i class="fas fa-chevron-left"></i></button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>

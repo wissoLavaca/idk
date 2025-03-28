@@ -1,0 +1,85 @@
+<!-- Template pour la création d'une entreprise -->
+        <div id="create-company-template">
+            <div class="p-6">
+                <h2 class="text-2xl font-semibold mb-6">Créer une nouvelle entreprise</h2>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label for="company-name">Nom de l'entreprise *</label>
+                            <input type="text" id="company-name" class="form-input" placeholder="Ex: Microsoft France" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-sector">Secteur d'activité *</label>
+                            <input type="text" id="company-sector" class="form-input" placeholder="Ex: Technologie, Finance..." required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-address">Adresse *</label>
+                        <input type="text" id="company-address" class="form-input" placeholder="Adresse complète" required>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="form-group">
+                            <label for="company-city">Ville *</label>
+                            <input type="text" id="company-city" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-postal">Code postal *</label>
+                            <input type="text" id="company-postal" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-country">Pays *</label>
+                            <input type="text" id="company-country" class="form-input" value="France">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label for="company-website">Site web</label>
+                            <input type="url" id="company-website" class="form-input" placeholder="https://...">
+                        </div>
+                        <div class="form-group">
+                            <label for="company-size">Taille de l'entreprise</label>
+                            <select id="company-size" class="form-select">
+                                <option value="">Sélectionnez</option>
+                                <option value="1-10">1-10 employés</option>
+                                <option value="11-50">11-50 employés</option>
+                                <option value="51-200">51-200 employés</option>
+                                <option value="201-500">201-500 employés</option>
+                                <option value="501-1000">501-1000 employés</option>
+                                <option value="1000+">1000+ employés</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-description">Description de l'entreprise</label>
+                        <textarea id="company-description" class="form-textarea" rows="4" placeholder="Présentez l'entreprise en quelques lignes..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-logo">Logo de l'entreprise</label>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-24 h-24 bg-slate-700/50 rounded-lg flex items-center justify-center border border-slate-600/50">
+                                <i class="fas fa-image text-3xl text-slate-500"></i>
+                            </div>
+                            <input type="file" id="company-logo" class="form-file" accept="image/*">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-contact">Contact principal</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" id="company-contact-name" class="form-input" placeholder="Nom du contact">
+                            <input type="email" id="company-contact-email" class="form-input" placeholder="Email du contact">
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" class="btn-cancel" onclick="loadModule('dashboard')">Annuler</button>
+                        <button type="submit" class="btn-submit">Créer l'entreprise</button>
+                    </div>
+                </form>
+            </div>
+        </div>

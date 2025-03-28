@@ -1,0 +1,591 @@
+.stat-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transition: transform 0.6s;
+    transform: translateX(-100%);
+}
+
+.stat-card:hover::after {
+    transform: translateX(100%);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.stat-card .icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover .icon {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.stat-card h3 {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.stat-card .value {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    background: linear-gradient(to right, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-card .change {
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.stat-card .change.positive {
+    color: var(--success-color);
+}
+
+.stat-card .change.negative {
+    color: var(--danger-color);
+}
+
+.stat-card .change i {
+    margin-right: 0.25rem;
+}
+
+/* Cartes d'offres de stage */
+.stage-card {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.stage-card:hover {
+    background: rgba(30, 41, 59, 0.5);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-3px);
+}
+
+.stage-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 0.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.stage-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.stage-content {
+    flex: 1;
+}
+
+.stage-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--text-light);
+}
+
+.stage-company {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.stage-details {
+    display: flex;
+    gap: 1rem;
+}
+
+.stage-detail {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+}
+.stage-detail i {
+    margin-right: 0.25rem;
+    font-size: 0.75rem;
+}
+
+.stage-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 1rem;
+}
+
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    background-color: rgba(30, 41, 59, 0.5);
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.edit-btn {
+    color: var(--accent-color);
+}
+
+.edit-btn:hover {
+    background-color: rgba(14, 165, 233, 0.2);
+    border-color: rgba(14, 165, 233, 0.3);
+}
+
+.delete-btn {
+    color: var(--danger-color);
+}
+
+.delete-btn:hover {
+    background-color: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.action-btn-sm {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+}
+
+.edit-btn-sm {
+    color: var(--accent-color);
+}
+.edit-btn-sm:hover {
+    background-color: rgba(14, 165, 233, 0.2);
+}
+
+.delete-btn-sm {
+    color: var(--danger-color);
+}
+
+.delete-btn-sm:hover {
+    background-color: rgba(239, 68, 68, 0.2);
+}
+
+/* Cartes de candidature */
+.candidature-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem;
+    border-radius: 12px;
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.candidature-card:hover {
+    background: rgba(30, 41, 59, 0.5);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.candidature-student {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+.candidature-student img {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    margin-right: 0.75rem;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    object-fit: cover;
+}
+
+.candidature-student h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.1rem;
+    color: var(--text-light);
+}
+
+.candidature-student p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.candidature-info {
+    flex: 1;
+    padding: 0 1rem;
+}
+.candidature-stage {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: var(--accent-color);
+}
+
+.candidature-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.candidature-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-accept, .btn-review, .btn-reject {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-light);
+}
+.btn-accept {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success-color);
+}
+
+.btn-accept:hover {
+    background: rgba(16, 185, 129, 0.4);
+    transform: scale(1.05);
+}
+
+.btn-review {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--accent-color);
+}
+
+.btn-review:hover {
+    background: rgba(59, 130, 246, 0.4);
+    transform: scale(1.05);
+}
+
+.btn-reject {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--danger-color);
+}
+btn-reject:hover {
+    background: rgba(239, 68, 68, 0.4);
+    transform: scale(1.05);
+}
+
+
+
+/* Company Evaluation Cards */
+.company-eval-card {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem;
+    border-radius: 12px;
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.company-eval-card:hover {
+    background: rgba(30, 41, 59, 0.5);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+}
+
+.company-eval-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background-color: white;
+    padding: 0.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.company-eval-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.company-eval-content {
+    flex: 1;
+}
+
+.company-eval-content h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: var(--text-light);
+}
+
+.company-eval-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.company-eval-rating .stars {
+    color: var(--warning-color);
+    font-size: 0.8rem;
+}
+
+.company-eval-rating span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.company-eval-feedback {
+    padding-left: 1rem;
+    border-left: 1px solid var(--border-color);
+    margin-left: 1rem;
+}
+
+.company-eval-feedback span {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+/* Star colors for different ratings */
+.stars .fas.fa-star {
+    color: var(--warning-color);
+}
+
+.stars .fas.fa-star-half-alt {
+    color: var(--warning-color);
+}
+
+.stars .far.fa-star {
+    color: rgba(245, 158, 11, 0.3);
+}
+
+/* Wishlist Cards */
+.wishlist-card {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem;
+    border-radius: 12px;
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.wishlist-card:hover {
+    background: rgba(30, 41, 59, 0.5);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+}
+
+.wishlist-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background-color: white;
+    padding: 0.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.wishlist-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.wishlist-content {
+    flex: 1;
+}
+
+.wishlist-content h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: var(--text-light);
+}
+
+.wishlist-content p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.wishlist-count {
+    padding-left: 1rem;
+    border-left: 1px solid var(--border-color);
+    margin-left: 1rem;
+}
+
+.wishlist-count span {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+/* Account Cards */
+.account-card {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 12px;
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.account-card:hover {
+    background: rgba(30, 41, 59, 0.5);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+}
+
+.account-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin-right: 0.75rem;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    object-fit: cover;
+}
+
+.account-info {
+    flex: 1;
+}
+
+.account-info h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.1rem;
+    color: var(--text-light);
+}
+
+.account-info p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.account-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.account-type-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.account-type-btn:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: var(--text-light);
+}
+
+.account-type-btn.active {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: var(--primary-color);
+}
+
+.account-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.account-list.hidden {
+    display: none;
+}
+
+/* Student Stats Mini Cards */
+.stat-mini-card {
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-mini-title {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.stat-mini-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-light);
+}

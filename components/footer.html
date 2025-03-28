@@ -1,0 +1,35 @@
+<footer class="px-6 py-4 bg-slate-900/80 backdrop-blur-sm text-center text-gray-400 text-sm border-t border-slate-800/50">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <span>© 2025 StageConnect</span>
+            <span class="text-slate-600">|</span>
+            <span id="current-user">Utilisateur: RamiMohamed12</span>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <a href="#" class="hover:text-blue-400 transition-colors">Mentions légales</a>
+            <span class="text-slate-600">|</span>
+            <a href="#" class="hover:text-blue-400 transition-colors">Confidentialité</a>
+            <span class="text-slate-600">|</span>
+            <a href="#" class="hover:text-blue-400 transition-colors">Contact</a>
+        </div>
+        
+        <div class="flex items-center space-x-2">
+            <span>Version 1.0.0</span>
+            <span class="text-slate-600">|</span>
+            <span id="current-time"></span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Update current time
+    function updateTime() {
+        const now = new Date();
+        const formatted = now.toLocaleTimeString('fr-FR');
+        document.getElementById('current-time').textContent = formatted;
+    }
+    
+    setInterval(updateTime, 1000);
+    updateTime();
+</script>
